@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BDDEFEXTModelStoreContainer" CdmEntityContainer="BDDEFEXTEntities">
+    <EntitySetMapping Name="Bitacora">
+      <EntityTypeMapping TypeName="BDDEFEXTModel.Bitacora">
+        <MappingFragment StoreEntitySet="Bitacora">
+          <ScalarProperty Name="idBit" ColumnName="idBit" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Terminal" ColumnName="Terminal" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="Aplicacion" ColumnName="Aplicacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DerechoLinea">
+      <EntityTypeMapping TypeName="BDDEFEXTModel.DerechoLinea">
+        <MappingFragment StoreEntitySet="DerechoLinea">
+          <ScalarProperty Name="idDerechoLinea" ColumnName="idDerechoLinea" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="idDueño" ColumnName="idDueño" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Devolucion">
+      <EntityTypeMapping TypeName="BDDEFEXTModel.Devolucion">
+        <MappingFragment StoreEntitySet="Devolucion">
+          <ScalarProperty Name="idDevolucion" ColumnName="idDevolucion" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="idPrestamo" ColumnName="idPrestamo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Interno">
+      <EntityTypeMapping TypeName="BDDEFEXTModel.Interno">
+        <MappingFragment StoreEntitySet="Interno">
+          <ScalarProperty Name="idInterno" ColumnName="idInterno" />
+          <ScalarProperty Name="Chasis" ColumnName="Chasis" />
+          <ScalarProperty Name="Placa" ColumnName="Placa" />
+          <ScalarProperty Name="Modelo" ColumnName="Modelo" />
+          <ScalarProperty Name="idDerechoLinea" ColumnName="idDerechoLinea" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Personal">
+      <EntityTypeMapping TypeName="BDDEFEXTModel.Personal">
+        <MappingFragment StoreEntitySet="Personal">
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="nombreCompleto" ColumnName="nombreCompleto" />
+          <ScalarProperty Name="CI" ColumnName="CI" />
+          <ScalarProperty Name="Celular" ColumnName="Celular" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Prestamo">
+      <EntityTypeMapping TypeName="BDDEFEXTModel.Prestamo">
+        <MappingFragment StoreEntitySet="Prestamo">
+          <ScalarProperty Name="idPrestamo" ColumnName="idPrestamo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
+          <ScalarProperty Name="fechaLimite" ColumnName="fechaLimite" />
+          <ScalarProperty Name="idDerechoLinea" ColumnName="idDerechoLinea" />
+          <ScalarProperty Name="idChofer" ColumnName="idChofer" />
+          <ScalarProperty Name="idEncargado" ColumnName="idEncargado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Repuesto">
+      <EntityTypeMapping TypeName="BDDEFEXTModel.Repuesto">
+        <MappingFragment StoreEntitySet="Repuesto">
+          <ScalarProperty Name="idRepuesto" ColumnName="idRepuesto" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="idTipoRepuesto" ColumnName="idTipoRepuesto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="BDDEFEXTModel.Roles">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="idRol" ColumnName="idRol" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoRepuesto">
+      <EntityTypeMapping TypeName="BDDEFEXTModel.TipoRepuesto">
+        <MappingFragment StoreEntitySet="TipoRepuesto">
+          <ScalarProperty Name="idTipoRepuesto" ColumnName="idTipoRepuesto" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Venta">
+      <EntityTypeMapping TypeName="BDDEFEXTModel.Venta">
+        <MappingFragment StoreEntitySet="Venta">
+          <ScalarProperty Name="idVenta" ColumnName="idVenta" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
+          <ScalarProperty Name="fechaLimite" ColumnName="fechaLimite" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
+          <ScalarProperty Name="idDerechoLinea" ColumnName="idDerechoLinea" />
+          <ScalarProperty Name="idChofer" ColumnName="idChofer" />
+          <ScalarProperty Name="idEncargado" ColumnName="idEncargado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DetallePrestamo">
+      <EntityTypeMapping TypeName="BDDEFEXTModel.DetallePrestamo">
+        <MappingFragment StoreEntitySet="DetallePrestamo">
+          <ScalarProperty Name="idPrestamo" ColumnName="idPrestamo" />
+          <ScalarProperty Name="idRepuesto" ColumnName="idRepuesto" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ChoferDerLin" TypeName="BDDEFEXTModel.ChoferDerLin" StoreEntitySet="ChoferDerLin">
+      <EndProperty Name="DerechoLinea">
+        <ScalarProperty Name="idDerechoLinea" ColumnName="idDerechoLinea" />
+      </EndProperty>
+      <EndProperty Name="Personal">
+        <ScalarProperty Name="Login" ColumnName="Login" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="DetalleDevolucion" TypeName="BDDEFEXTModel.DetalleDevolucion" StoreEntitySet="DetalleDevolucion">
+      <EndProperty Name="Devolucion">
+        <ScalarProperty Name="idDevolucion" ColumnName="idDevolucion" />
+      </EndProperty>
+      <EndProperty Name="Repuesto">
+        <ScalarProperty Name="idRepuesto" ColumnName="idRepuesto" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="DetalleVenta" TypeName="BDDEFEXTModel.DetalleVenta" StoreEntitySet="DetalleVenta">
+      <EndProperty Name="Repuesto">
+        <ScalarProperty Name="idRepuesto" ColumnName="idRepuesto" />
+      </EndProperty>
+      <EndProperty Name="Venta">
+        <ScalarProperty Name="idVenta" ColumnName="idVenta" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="RolesPersonal" TypeName="BDDEFEXTModel.RolesPersonal" StoreEntitySet="RolesPersonal">
+      <EndProperty Name="Roles">
+        <ScalarProperty Name="idRol" ColumnName="idRol" />
+      </EndProperty>
+      <EndProperty Name="Personal">
+        <ScalarProperty Name="Login" ColumnName="Login" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

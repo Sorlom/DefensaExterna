@@ -1,0 +1,383 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BDDEFEXTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Bitacora">
+    <Key>
+      <PropertyRef Name="idBit" />
+    </Key>
+    <Property Name="idBit" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Terminal" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Usuario" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Aplicacion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DerechoLinea">
+    <Key>
+      <PropertyRef Name="idDerechoLinea" />
+    </Key>
+    <Property Name="idDerechoLinea" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idDueño" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Personal" Relationship="Self.FK__DerechoLi__idDue__1920BF5C" FromRole="DerechoLinea" ToRole="Personal" />
+    <NavigationProperty Name="Interno" Relationship="Self.FK__Interno__idDerec__1BFD2C07" FromRole="DerechoLinea" ToRole="Interno" />
+    <NavigationProperty Name="Prestamo" Relationship="Self.FK__Prestamo__idDere__239E4DCF" FromRole="DerechoLinea" ToRole="Prestamo" />
+    <NavigationProperty Name="Venta" Relationship="Self.FK__Venta__idDerecho__1ED998B2" FromRole="DerechoLinea" ToRole="Venta" />
+    <NavigationProperty Name="Personal1" Relationship="Self.ChoferDerLin" FromRole="DerechoLinea" ToRole="Personal" />
+  </EntityType>
+  <EntityType Name="Devolucion">
+    <Key>
+      <PropertyRef Name="idDevolucion" />
+    </Key>
+    <Property Name="idDevolucion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="idPrestamo" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Prestamo" Relationship="Self.FK__Devolucio__idPre__286302EC" FromRole="Devolucion" ToRole="Prestamo" />
+    <NavigationProperty Name="Repuesto" Relationship="Self.DetalleDevolucion" FromRole="Devolucion" ToRole="Repuesto" />
+  </EntityType>
+  <EntityType Name="Interno">
+    <Key>
+      <PropertyRef Name="idInterno" />
+    </Key>
+    <Property Name="idInterno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Chasis" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Placa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Modelo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idDerechoLinea" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="DerechoLinea" Relationship="Self.FK__Interno__idDerec__1BFD2C07" FromRole="Interno" ToRole="DerechoLinea" />
+  </EntityType>
+  <EntityType Name="Personal">
+    <Key>
+      <PropertyRef Name="Login" />
+    </Key>
+    <Property Name="Login" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nombreCompleto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CI" Type="Int32" Nullable="false" />
+    <Property Name="Celular" Type="Int32" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="DerechoLinea" Relationship="Self.FK__DerechoLi__idDue__1920BF5C" FromRole="Personal" ToRole="DerechoLinea" />
+    <NavigationProperty Name="Prestamo" Relationship="Self.FK__Prestamo__idChof__24927208" FromRole="Personal" ToRole="Prestamo" />
+    <NavigationProperty Name="Prestamo1" Relationship="Self.FK__Prestamo__idEnca__25869641" FromRole="Personal" ToRole="Prestamo" />
+    <NavigationProperty Name="Venta" Relationship="Self.FK__Venta__idChofer__1FCDBCEB" FromRole="Personal" ToRole="Venta" />
+    <NavigationProperty Name="Venta1" Relationship="Self.FK__Venta__idEncarga__20C1E124" FromRole="Personal" ToRole="Venta" />
+    <NavigationProperty Name="DerechoLinea1" Relationship="Self.ChoferDerLin" FromRole="Personal" ToRole="DerechoLinea" />
+    <NavigationProperty Name="Roles" Relationship="Self.RolesPersonal" FromRole="Personal" ToRole="Roles" />
+  </EntityType>
+  <EntityType Name="Prestamo">
+    <Key>
+      <PropertyRef Name="idPrestamo" />
+    </Key>
+    <Property Name="idPrestamo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="fechaInicio" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="fechaLimite" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="idDerechoLinea" Type="Int32" Nullable="false" />
+    <Property Name="idChofer" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idEncargado" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="DerechoLinea" Relationship="Self.FK__Prestamo__idDere__239E4DCF" FromRole="Prestamo" ToRole="DerechoLinea" />
+    <NavigationProperty Name="Devolucion" Relationship="Self.FK__Devolucio__idPre__286302EC" FromRole="Prestamo" ToRole="Devolucion" />
+    <NavigationProperty Name="Personal" Relationship="Self.FK__Prestamo__idChof__24927208" FromRole="Prestamo" ToRole="Personal" />
+    <NavigationProperty Name="Personal1" Relationship="Self.FK__Prestamo__idEnca__25869641" FromRole="Prestamo" ToRole="Personal" />
+    <NavigationProperty Name="DetallePrestamo" Relationship="Self.FK__DetallePr__idPre__35BCFE0A" FromRole="Prestamo" ToRole="DetallePrestamo" />
+  </EntityType>
+  <EntityType Name="Repuesto">
+    <Key>
+      <PropertyRef Name="idRepuesto" />
+    </Key>
+    <Property Name="idRepuesto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Cantidad" Type="Int32" Nullable="false" />
+    <Property Name="Precio" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="idTipoRepuesto" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="DetallePrestamo" Relationship="Self.FK__DetallePr__idRep__36B12243" FromRole="Repuesto" ToRole="DetallePrestamo" />
+    <NavigationProperty Name="TipoRepuesto" Relationship="Self.FK__Repuesto__idTipo__164452B1" FromRole="Repuesto" ToRole="TipoRepuesto" />
+    <NavigationProperty Name="Devolucion" Relationship="Self.DetalleDevolucion" FromRole="Repuesto" ToRole="Devolucion" />
+    <NavigationProperty Name="Venta" Relationship="Self.DetalleVenta" FromRole="Repuesto" ToRole="Venta" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="idRol" />
+    </Key>
+    <Property Name="idRol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Personal" Relationship="Self.RolesPersonal" FromRole="Roles" ToRole="Personal" />
+  </EntityType>
+  <EntityType Name="TipoRepuesto">
+    <Key>
+      <PropertyRef Name="idTipoRepuesto" />
+    </Key>
+    <Property Name="idTipoRepuesto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Repuesto" Relationship="Self.FK__Repuesto__idTipo__164452B1" FromRole="TipoRepuesto" ToRole="Repuesto" />
+  </EntityType>
+  <EntityType Name="Venta">
+    <Key>
+      <PropertyRef Name="idVenta" />
+    </Key>
+    <Property Name="idVenta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="fechaInicio" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="fechaLimite" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Monto" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="idDerechoLinea" Type="Int32" Nullable="false" />
+    <Property Name="idChofer" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idEncargado" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="DerechoLinea" Relationship="Self.FK__Venta__idDerecho__1ED998B2" FromRole="Venta" ToRole="DerechoLinea" />
+    <NavigationProperty Name="Personal" Relationship="Self.FK__Venta__idChofer__1FCDBCEB" FromRole="Venta" ToRole="Personal" />
+    <NavigationProperty Name="Personal1" Relationship="Self.FK__Venta__idEncarga__20C1E124" FromRole="Venta" ToRole="Personal" />
+    <NavigationProperty Name="Repuesto" Relationship="Self.DetalleVenta" FromRole="Venta" ToRole="Repuesto" />
+  </EntityType>
+  <EntityType Name="DetallePrestamo">
+    <Key>
+      <PropertyRef Name="idPrestamo" />
+      <PropertyRef Name="idRepuesto" />
+      <PropertyRef Name="Estado" />
+    </Key>
+    <Property Name="idPrestamo" Type="Int32" Nullable="false" />
+    <Property Name="idRepuesto" Type="Int32" Nullable="false" />
+    <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Prestamo" Relationship="Self.FK__DetallePr__idPre__35BCFE0A" FromRole="DetallePrestamo" ToRole="Prestamo" />
+    <NavigationProperty Name="Repuesto" Relationship="Self.FK__DetallePr__idRep__36B12243" FromRole="DetallePrestamo" ToRole="Repuesto" />
+  </EntityType>
+  <Association Name="FK__DerechoLi__idDue__1920BF5C">
+    <End Role="Personal" Type="Self.Personal" Multiplicity="1" />
+    <End Role="DerechoLinea" Type="Self.DerechoLinea" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personal">
+        <PropertyRef Name="Login" />
+      </Principal>
+      <Dependent Role="DerechoLinea">
+        <PropertyRef Name="idDueño" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Interno__idDerec__1BFD2C07">
+    <End Role="DerechoLinea" Type="Self.DerechoLinea" Multiplicity="1" />
+    <End Role="Interno" Type="Self.Interno" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DerechoLinea">
+        <PropertyRef Name="idDerechoLinea" />
+      </Principal>
+      <Dependent Role="Interno">
+        <PropertyRef Name="idDerechoLinea" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Prestamo__idDere__239E4DCF">
+    <End Role="DerechoLinea" Type="Self.DerechoLinea" Multiplicity="1" />
+    <End Role="Prestamo" Type="Self.Prestamo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DerechoLinea">
+        <PropertyRef Name="idDerechoLinea" />
+      </Principal>
+      <Dependent Role="Prestamo">
+        <PropertyRef Name="idDerechoLinea" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Venta__idDerecho__1ED998B2">
+    <End Role="DerechoLinea" Type="Self.DerechoLinea" Multiplicity="1" />
+    <End Role="Venta" Type="Self.Venta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DerechoLinea">
+        <PropertyRef Name="idDerechoLinea" />
+      </Principal>
+      <Dependent Role="Venta">
+        <PropertyRef Name="idDerechoLinea" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Devolucio__idPre__286302EC">
+    <End Role="Prestamo" Type="Self.Prestamo" Multiplicity="1" />
+    <End Role="Devolucion" Type="Self.Devolucion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Prestamo">
+        <PropertyRef Name="idPrestamo" />
+      </Principal>
+      <Dependent Role="Devolucion">
+        <PropertyRef Name="idPrestamo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Prestamo__idChof__24927208">
+    <End Role="Personal" Type="Self.Personal" Multiplicity="1" />
+    <End Role="Prestamo" Type="Self.Prestamo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personal">
+        <PropertyRef Name="Login" />
+      </Principal>
+      <Dependent Role="Prestamo">
+        <PropertyRef Name="idChofer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Prestamo__idEnca__25869641">
+    <End Role="Personal" Type="Self.Personal" Multiplicity="1" />
+    <End Role="Prestamo" Type="Self.Prestamo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personal">
+        <PropertyRef Name="Login" />
+      </Principal>
+      <Dependent Role="Prestamo">
+        <PropertyRef Name="idEncargado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Venta__idChofer__1FCDBCEB">
+    <End Role="Personal" Type="Self.Personal" Multiplicity="1" />
+    <End Role="Venta" Type="Self.Venta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personal">
+        <PropertyRef Name="Login" />
+      </Principal>
+      <Dependent Role="Venta">
+        <PropertyRef Name="idChofer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Venta__idEncarga__20C1E124">
+    <End Role="Personal" Type="Self.Personal" Multiplicity="1" />
+    <End Role="Venta" Type="Self.Venta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personal">
+        <PropertyRef Name="Login" />
+      </Principal>
+      <Dependent Role="Venta">
+        <PropertyRef Name="idEncargado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DetallePr__idPre__35BCFE0A">
+    <End Role="Prestamo" Type="Self.Prestamo" Multiplicity="1" />
+    <End Role="DetallePrestamo" Type="Self.DetallePrestamo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Prestamo">
+        <PropertyRef Name="idPrestamo" />
+      </Principal>
+      <Dependent Role="DetallePrestamo">
+        <PropertyRef Name="idPrestamo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DetallePr__idRep__36B12243">
+    <End Role="Repuesto" Type="Self.Repuesto" Multiplicity="1" />
+    <End Role="DetallePrestamo" Type="Self.DetallePrestamo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Repuesto">
+        <PropertyRef Name="idRepuesto" />
+      </Principal>
+      <Dependent Role="DetallePrestamo">
+        <PropertyRef Name="idRepuesto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Repuesto__idTipo__164452B1">
+    <End Role="TipoRepuesto" Type="Self.TipoRepuesto" Multiplicity="1" />
+    <End Role="Repuesto" Type="Self.Repuesto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoRepuesto">
+        <PropertyRef Name="idTipoRepuesto" />
+      </Principal>
+      <Dependent Role="Repuesto">
+        <PropertyRef Name="idTipoRepuesto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ChoferDerLin">
+    <End Role="DerechoLinea" Type="Self.DerechoLinea" Multiplicity="*" />
+    <End Role="Personal" Type="Self.Personal" Multiplicity="*" />
+  </Association>
+  <Association Name="DetalleDevolucion">
+    <End Role="Devolucion" Type="Self.Devolucion" Multiplicity="*" />
+    <End Role="Repuesto" Type="Self.Repuesto" Multiplicity="*" />
+  </Association>
+  <Association Name="DetalleVenta">
+    <End Role="Repuesto" Type="Self.Repuesto" Multiplicity="*" />
+    <End Role="Venta" Type="Self.Venta" Multiplicity="*" />
+  </Association>
+  <Association Name="RolesPersonal">
+    <End Role="Roles" Type="Self.Roles" Multiplicity="*" />
+    <End Role="Personal" Type="Self.Personal" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="BDDEFEXTEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Bitacora" EntityType="Self.Bitacora" />
+    <EntitySet Name="DerechoLinea" EntityType="Self.DerechoLinea" />
+    <EntitySet Name="Devolucion" EntityType="Self.Devolucion" />
+    <EntitySet Name="Interno" EntityType="Self.Interno" />
+    <EntitySet Name="Personal" EntityType="Self.Personal" />
+    <EntitySet Name="Prestamo" EntityType="Self.Prestamo" />
+    <EntitySet Name="Repuesto" EntityType="Self.Repuesto" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" />
+    <EntitySet Name="TipoRepuesto" EntityType="Self.TipoRepuesto" />
+    <EntitySet Name="Venta" EntityType="Self.Venta" />
+    <EntitySet Name="DetallePrestamo" EntityType="Self.DetallePrestamo" />
+    <AssociationSet Name="FK__DerechoLi__idDue__1920BF5C" Association="Self.FK__DerechoLi__idDue__1920BF5C">
+      <End Role="Personal" EntitySet="Personal" />
+      <End Role="DerechoLinea" EntitySet="DerechoLinea" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Interno__idDerec__1BFD2C07" Association="Self.FK__Interno__idDerec__1BFD2C07">
+      <End Role="DerechoLinea" EntitySet="DerechoLinea" />
+      <End Role="Interno" EntitySet="Interno" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Prestamo__idDere__239E4DCF" Association="Self.FK__Prestamo__idDere__239E4DCF">
+      <End Role="DerechoLinea" EntitySet="DerechoLinea" />
+      <End Role="Prestamo" EntitySet="Prestamo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Venta__idDerecho__1ED998B2" Association="Self.FK__Venta__idDerecho__1ED998B2">
+      <End Role="DerechoLinea" EntitySet="DerechoLinea" />
+      <End Role="Venta" EntitySet="Venta" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Devolucio__idPre__286302EC" Association="Self.FK__Devolucio__idPre__286302EC">
+      <End Role="Prestamo" EntitySet="Prestamo" />
+      <End Role="Devolucion" EntitySet="Devolucion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Prestamo__idChof__24927208" Association="Self.FK__Prestamo__idChof__24927208">
+      <End Role="Personal" EntitySet="Personal" />
+      <End Role="Prestamo" EntitySet="Prestamo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Prestamo__idEnca__25869641" Association="Self.FK__Prestamo__idEnca__25869641">
+      <End Role="Personal" EntitySet="Personal" />
+      <End Role="Prestamo" EntitySet="Prestamo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Venta__idChofer__1FCDBCEB" Association="Self.FK__Venta__idChofer__1FCDBCEB">
+      <End Role="Personal" EntitySet="Personal" />
+      <End Role="Venta" EntitySet="Venta" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Venta__idEncarga__20C1E124" Association="Self.FK__Venta__idEncarga__20C1E124">
+      <End Role="Personal" EntitySet="Personal" />
+      <End Role="Venta" EntitySet="Venta" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DetallePr__idPre__35BCFE0A" Association="Self.FK__DetallePr__idPre__35BCFE0A">
+      <End Role="Prestamo" EntitySet="Prestamo" />
+      <End Role="DetallePrestamo" EntitySet="DetallePrestamo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DetallePr__idRep__36B12243" Association="Self.FK__DetallePr__idRep__36B12243">
+      <End Role="Repuesto" EntitySet="Repuesto" />
+      <End Role="DetallePrestamo" EntitySet="DetallePrestamo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Repuesto__idTipo__164452B1" Association="Self.FK__Repuesto__idTipo__164452B1">
+      <End Role="TipoRepuesto" EntitySet="TipoRepuesto" />
+      <End Role="Repuesto" EntitySet="Repuesto" />
+    </AssociationSet>
+    <AssociationSet Name="ChoferDerLin" Association="Self.ChoferDerLin">
+      <End Role="DerechoLinea" EntitySet="DerechoLinea" />
+      <End Role="Personal" EntitySet="Personal" />
+    </AssociationSet>
+    <AssociationSet Name="DetalleDevolucion" Association="Self.DetalleDevolucion">
+      <End Role="Devolucion" EntitySet="Devolucion" />
+      <End Role="Repuesto" EntitySet="Repuesto" />
+    </AssociationSet>
+    <AssociationSet Name="DetalleVenta" Association="Self.DetalleVenta">
+      <End Role="Repuesto" EntitySet="Repuesto" />
+      <End Role="Venta" EntitySet="Venta" />
+    </AssociationSet>
+    <AssociationSet Name="RolesPersonal" Association="Self.RolesPersonal">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Personal" EntitySet="Personal" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

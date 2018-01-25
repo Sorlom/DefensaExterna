@@ -1,0 +1,66 @@
+﻿@model SistemaVentaPrestamo.Models.Prestamo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Prestamo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fechaInicio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechaInicio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fechaLimite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechaLimite)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DerechoLinea.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DerechoLinea.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Personal.Password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Personal.Password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Personal1.Password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Personal1.Password)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idPrestamo }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

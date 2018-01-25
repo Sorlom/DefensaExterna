@@ -8,14 +8,14 @@
         <EntityTypeShape EntityType="BDDEFEXTModel.Bitacora" Width="1.5" PointX="0.5" PointY="0.5" IsExpanded="true" />
         <EntityTypeShape EntityType="BDDEFEXTModel.DerechoLinea" Width="1.5" PointX="4.5" PointY="0.625" IsExpanded="true" />
         <EntityTypeShape EntityType="BDDEFEXTModel.Devolucion" Width="1.5" PointX="5.75" PointY="4.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDDEFEXTModel.Interno" Width="1.5" PointX="2.625" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDDEFEXTModel.Interno" Width="1.5" PointX="3.125" PointY="4.5" IsExpanded="true" />
         <EntityTypeShape EntityType="BDDEFEXTModel.Personal" Width="1.5" PointX="2.25" PointY="0.5" IsExpanded="true" />
         <EntityTypeShape EntityType="BDDEFEXTModel.Prestamo" Width="1.5" PointX="6.25" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDDEFEXTModel.Repuesto" Width="1.5" PointX="8.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDDEFEXTModel.Repuesto" Width="1.5" PointX="8.125" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="BDDEFEXTModel.Roles" Width="1.5" PointX="0.5" PointY="3.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDDEFEXTModel.TipoRepuesto" Width="1.5" PointX="8.625" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDDEFEXTModel.Venta" Width="1.5" PointX="12.625" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDDEFEXTModel.DetallePrestamo" Width="1.5" PointX="14.875" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDDEFEXTModel.TipoRepuesto" Width="1.5" PointX="7.625" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDDEFEXTModel.Venta" Width="1.5" PointX="10" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDDEFEXTModel.DetallePrestamo" Width="1.5" PointX="10.125" PointY="1.25" IsExpanded="true" />
         <AssociationConnector Association="BDDEFEXTModel.FK__DerechoLi__idDue__1920BF5C" ManuallyRouted="false" />
         <AssociationConnector Association="BDDEFEXTModel.FK__Interno__idDerec__1BFD2C07" ManuallyRouted="false" />
         <AssociationConnector Association="BDDEFEXTModel.FK__Prestamo__idDere__239E4DCF" ManuallyRouted="false" />
