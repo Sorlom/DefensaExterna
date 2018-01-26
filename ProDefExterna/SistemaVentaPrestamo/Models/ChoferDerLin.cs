@@ -12,19 +12,13 @@ namespace SistemaVentaPrestamo.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Roles
+    public partial class ChoferDerLin
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Roles()
-        {
-            this.RolesPersonal = new HashSet<RolesPersonal>();
-        }
-    
-        public int idRol { get; set; }
-        public string Nombre { get; set; }
+        public string Login { get; set; }
+        public int idDerechoLinea { get; set; }
         public string Descripcion { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RolesPersonal> RolesPersonal { get; set; }
+        public virtual DerechoLinea DerechoLinea { get; set; }
+        public virtual Personal Personal { get; set; }
     }
 }

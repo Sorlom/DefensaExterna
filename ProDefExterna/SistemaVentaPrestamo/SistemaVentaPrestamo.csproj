@@ -131,59 +131,69 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\PersonalController.cs" />
-    <Compile Include="Controllers\PrestamosController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BDModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BDModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BDModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BDModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BDModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\Bitacora.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+      <DependentUpon>BDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ChoferDerLin.cs">
+      <DependentUpon>BDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DerechoLinea.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+      <DependentUpon>BDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DetalleDevolucion.cs">
+      <DependentUpon>BDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DetallePrestamo.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+      <DependentUpon>BDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DetalleVenta.cs">
+      <DependentUpon>BDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Devolucion.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+      <DependentUpon>BDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Interno.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model.edmx</DependentUpon>
+      <DependentUpon>BDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Personal.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+      <DependentUpon>BDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Prestamo.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+      <DependentUpon>BDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Repuesto.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+      <DependentUpon>BDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Roles.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+      <DependentUpon>BDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RolesPersonal.cs">
+      <DependentUpon>BDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TipoRepuesto.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+      <DependentUpon>BDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Venta.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+      <DependentUpon>BDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -194,24 +204,24 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\Model.Context.tt">
+    <Content Include="Models\BDModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model.edmx</DependentUpon>
-      <LastGenOutput>Model.Context.cs</LastGenOutput>
+      <DependentUpon>BDModel.edmx</DependentUpon>
+      <LastGenOutput>BDModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Model.tt">
+    <Content Include="Models\BDModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model.edmx</DependentUpon>
-      <LastGenOutput>Model.cs</LastGenOutput>
+      <DependentUpon>BDModel.edmx</DependentUpon>
+      <LastGenOutput>BDModel.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\Model.edmx">
+    <EntityDeploy Include="Models\BDModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model.Designer.cs</LastGenOutput>
+      <LastGenOutput>BDModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\Model.edmx.diagram">
-      <DependentUpon>Model.edmx</DependentUpon>
+    <Content Include="Models\BDModel.edmx.diagram">
+      <DependentUpon>BDModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -239,16 +249,6 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Prestamos\Create.cshtml" />
-    <Content Include="Views\Prestamos\Delete.cshtml" />
-    <Content Include="Views\Prestamos\Details.cshtml" />
-    <Content Include="Views\Prestamos\Edit.cshtml" />
-    <Content Include="Views\Prestamos\Index.cshtml" />
-    <Content Include="Views\Personal\Create.cshtml" />
-    <Content Include="Views\Personal\Delete.cshtml" />
-    <Content Include="Views\Personal\Details.cshtml" />
-    <Content Include="Views\Personal\Edit.cshtml" />
-    <Content Include="Views\Personal\Index.cshtml" />
     <Content Include="Views\Roles\Create.cshtml" />
     <Content Include="Views\Roles\Delete.cshtml" />
     <Content Include="Views\Roles\Details.cshtml" />

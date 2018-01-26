@@ -18,12 +18,12 @@ namespace SistemaVentaPrestamo.Models
         public Personal()
         {
             this.DerechoLinea = new HashSet<DerechoLinea>();
+            this.ChoferDerLin = new HashSet<ChoferDerLin>();
             this.Prestamo = new HashSet<Prestamo>();
             this.Prestamo1 = new HashSet<Prestamo>();
+            this.RolesPersonal = new HashSet<RolesPersonal>();
             this.Venta = new HashSet<Venta>();
             this.Venta1 = new HashSet<Venta>();
-            this.DerechoLinea1 = new HashSet<DerechoLinea>();
-            this.Roles = new HashSet<Roles>();
         }
     
         public string Login { get; set; }
@@ -36,16 +36,16 @@ namespace SistemaVentaPrestamo.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DerechoLinea> DerechoLinea { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ChoferDerLin> ChoferDerLin { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Prestamo> Prestamo { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Prestamo> Prestamo1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<RolesPersonal> RolesPersonal { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Venta> Venta { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Venta> Venta1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DerechoLinea> DerechoLinea1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Roles> Roles { get; set; }
     }
 }

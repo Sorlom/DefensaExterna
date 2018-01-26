@@ -35,6 +35,10 @@ namespace SistemaVentaPrestamo.Models
         public virtual DbSet<Roles> Roles { get; set; }
         public virtual DbSet<TipoRepuesto> TipoRepuesto { get; set; }
         public virtual DbSet<Venta> Venta { get; set; }
+        public virtual DbSet<ChoferDerLin> ChoferDerLin { get; set; }
+        public virtual DbSet<DetalleDevolucion> DetalleDevolucion { get; set; }
         public virtual DbSet<DetallePrestamo> DetallePrestamo { get; set; }
+        public virtual DbSet<DetalleVenta> DetalleVenta { get; set; }
+        public virtual DbSet<RolesPersonal> RolesPersonal { get; set; }
     }
 }

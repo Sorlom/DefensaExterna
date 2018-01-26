@@ -12,21 +12,13 @@ namespace SistemaVentaPrestamo.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Devolucion
+    public partial class DetalleDevolucion
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Devolucion()
-        {
-            this.DetalleDevolucion = new HashSet<DetalleDevolucion>();
-        }
-    
         public int idDevolucion { get; set; }
+        public int idRepuesto { get; set; }
         public string Descripcion { get; set; }
-        public System.DateTime Fecha { get; set; }
-        public int idPrestamo { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DetalleDevolucion> DetalleDevolucion { get; set; }
-        public virtual Prestamo Prestamo { get; set; }
+        public virtual Devolucion Devolucion { get; set; }
+        public virtual Repuesto Repuesto { get; set; }
     }
 }

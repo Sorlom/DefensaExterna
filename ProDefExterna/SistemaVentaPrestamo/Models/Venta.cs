@@ -17,7 +17,7 @@ namespace SistemaVentaPrestamo.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Venta()
         {
-            this.Repuesto = new HashSet<Repuesto>();
+            this.DetalleVenta = new HashSet<DetalleVenta>();
         }
     
         public int idVenta { get; set; }
@@ -33,6 +33,6 @@ namespace SistemaVentaPrestamo.Models
         public virtual Personal Personal { get; set; }
         public virtual Personal Personal1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Repuesto> Repuesto { get; set; }
+        public virtual ICollection<DetalleVenta> DetalleVenta { get; set; }
     }
 }

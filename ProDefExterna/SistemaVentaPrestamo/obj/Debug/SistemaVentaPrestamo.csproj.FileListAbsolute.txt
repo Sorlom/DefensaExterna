@@ -46,6 +46,5 @@ D:\Defensa Externa - Examen de Grado\DefensaExterna\ProDefExterna\SistemaVentaPr
 D:\Defensa Externa - Examen de Grado\DefensaExterna\ProDefExterna\SistemaVentaPrestamo\bin\es\System.Web.WebPages.resources.dll
 D:\Defensa Externa - Examen de Grado\DefensaExterna\ProDefExterna\SistemaVentaPrestamo\bin\es\System.Web.WebPages.Deployment.resources.dll
 D:\Defensa Externa - Examen de Grado\DefensaExterna\ProDefExterna\SistemaVentaPrestamo\bin\es\System.Web.WebPages.Razor.resources.dll
-D:\Defensa Externa - Examen de Grado\DefensaExterna\ProDefExterna\SistemaVentaPrestamo\obj\Debug\SistemaVentaPrestamo.csprojResolveAssemblyReference.cache
 D:\Defensa Externa - Examen de Grado\DefensaExterna\ProDefExterna\SistemaVentaPrestamo\obj\Debug\SistemaVentaPrestamo.dll
 D:\Defensa Externa - Examen de Grado\DefensaExterna\ProDefExterna\SistemaVentaPrestamo\obj\Debug\SistemaVentaPrestamo.pdb
