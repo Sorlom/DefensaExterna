@@ -77,22 +77,26 @@ idPrestamo int not null Foreign key references Prestamo(idPrestamo)
 go
 Create table RolesPersonal(
 Login varchar(30) not null Foreign key references Personal(Login),
-idRol int not null Foreign key references Roles(idRol)
+idRol int not null Foreign key references Roles(idRol),
+Descripcion varchar(100) not null
 )
 go
 Create table ChoferDerLin(
 Login varchar(30) not null Foreign key references Personal(Login),
-idDerechoLinea int not null Foreign key references DerechoLinea(idDerechoLinea)
+idDerechoLinea int not null Foreign key references DerechoLinea(idDerechoLinea),
+Descripcion varchar(100) not null
 )
 go
 Create table DetalleVenta(
 idVenta int not null Foreign key references Venta(idVenta),
-idRepuesto int not null Foreign key references Repuesto(idRepuesto)
+idRepuesto int not null Foreign key references Repuesto(idRepuesto),
+Descripcion varchar(100) not null
 )
 go 
 Create table DetalleDevolucion(
 idDevolucion int not null Foreign key references Devolucion(idDevolucion),
-idRepuesto int not null Foreign key references Repuesto(idRepuesto)
+idRepuesto int not null Foreign key references Repuesto(idRepuesto),
+Descripcion varchar(100) not null
 )
 go
 Create table DetallePrestamo(
