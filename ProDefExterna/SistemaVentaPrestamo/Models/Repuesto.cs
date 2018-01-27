@@ -17,8 +17,8 @@ namespace SistemaVentaPrestamo.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Repuesto()
         {
-            this.DetalleDevolucion = new HashSet<DetalleDevolucion>();
             this.DetallePrestamo = new HashSet<DetallePrestamo>();
+            this.DetalleDevolucion = new HashSet<DetalleDevolucion>();
             this.DetalleVenta = new HashSet<DetalleVenta>();
         }
     
@@ -29,11 +29,11 @@ namespace SistemaVentaPrestamo.Models
         public int idTipoRepuesto { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DetallePrestamo> DetallePrestamo { get; set; }
+        public virtual TipoRepuesto TipoRepuesto { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DetalleDevolucion> DetalleDevolucion { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DetallePrestamo> DetallePrestamo { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DetalleVenta> DetalleVenta { get; set; }
-        public virtual TipoRepuesto TipoRepuesto { get; set; }
     }
 }

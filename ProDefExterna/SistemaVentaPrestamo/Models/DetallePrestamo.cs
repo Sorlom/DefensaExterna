@@ -17,6 +17,7 @@ namespace SistemaVentaPrestamo.Models
         public int idPrestamo { get; set; }
         public int idRepuesto { get; set; }
         public string Estado { get; set; }
+        public int Cantidad { get; set; }
     
         public virtual Prestamo Prestamo { get; set; }
         public virtual Repuesto Repuesto { get; set; }

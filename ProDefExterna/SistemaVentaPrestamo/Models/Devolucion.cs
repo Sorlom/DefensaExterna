@@ -25,8 +25,8 @@ namespace SistemaVentaPrestamo.Models
         public System.DateTime Fecha { get; set; }
         public int idPrestamo { get; set; }
     
+        public virtual Prestamo Prestamo { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DetalleDevolucion> DetalleDevolucion { get; set; }
-        public virtual Prestamo Prestamo { get; set; }
     }
 }

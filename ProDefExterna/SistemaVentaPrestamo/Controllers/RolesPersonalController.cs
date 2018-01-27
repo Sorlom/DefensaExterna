@@ -11,107 +11,116 @@ using SistemaVentaPrestamo.Models;
 namespace SistemaVentaPrestamo.Controllers
 {
     [Authorize(Roles = "R1")]
-    public class PersonalController : Controller
+    public class RolesPersonalController : Controller
     {
         private BDDEFEXTEntities db = new BDDEFEXTEntities();
 
-        // GET: Personal
+        // GET: RolesPersonal
         public ActionResult Index()
         {
-            return View(db.Personal.ToList());
+            var rolesPersonal = db.RolesPersonal.Include(r => r.Personal).Include(r => r.Roles);
+            return View(rolesPersonal.ToList());
         }
 
-        // GET: Personal/Details/5
+        // GET: RolesPersonal/Details/5
         public ActionResult Details(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Personal personal = db.Personal.Find(id);
-            if (personal == null)
+            RolesPersonal rolesPersonal = db.RolesPersonal.Find(id);
+            if (rolesPersonal == null)
             {
                 return HttpNotFound();
             }
-            return View(personal);
+            return View(rolesPersonal);
         }
 
-        // GET: Personal/Create
+        // GET: RolesPersonal/Create
         public ActionResult Create()
         {
+            ViewBag.Login = new SelectList(db.Personal, "Login", "Password");
+            ViewBag.idRol = new SelectList(db.Roles, "idRol", "Nombre");
             return View();
         }
 
-        // POST: Personal/Create
+        // POST: RolesPersonal/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Login,Password,nombreCompleto,CI,Celular,Email")] Personal personal)
+        public ActionResult Create([Bind(Include = "Login,idRol,Descripcion")] RolesPersonal rolesPersonal)
         {
             if (ModelState.IsValid)
             {
-                db.Personal.Add(personal);
+                db.RolesPersonal.Add(rolesPersonal);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(personal);
+            ViewBag.Login = new SelectList(db.Personal, "Login", "Password", rolesPersonal.Login);
+            ViewBag.idRol = new SelectList(db.Roles, "idRol", "Nombre", rolesPersonal.idRol);
+            return View(rolesPersonal);
         }
 
-        // GET: Personal/Edit/5
+        // GET: RolesPersonal/Edit/5
         public ActionResult Edit(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Personal personal = db.Personal.Find(id);
-            if (personal == null)
+            RolesPersonal rolesPersonal = db.RolesPersonal.Find(id);
+            if (rolesPersonal == null)
             {
                 return HttpNotFound();
             }
-            return View(personal);
+            ViewBag.Login = new SelectList(db.Personal, "Login", "Password", rolesPersonal.Login);
+            ViewBag.idRol = new SelectList(db.Roles, "idRol", "Nombre", rolesPersonal.idRol);
+            return View(rolesPersonal);
         }
 
-        // POST: Personal/Edit/5
+        // POST: RolesPersonal/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Login,Password,nombreCompleto,CI,Celular,Email")] Personal personal)
+        public ActionResult Edit([Bind(Include = "Login,idRol,Descripcion")] RolesPersonal rolesPersonal)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(personal).State = EntityState.Modified;
+                db.Entry(rolesPersonal).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(personal);
+            ViewBag.Login = new SelectList(db.Personal, "Login", "Password", rolesPersonal.Login);
+            ViewBag.idRol = new SelectList(db.Roles, "idRol", "Nombre", rolesPersonal.idRol);
+            return View(rolesPersonal);
         }
 
-        // GET: Personal/Delete/5
+        // GET: RolesPersonal/Delete/5
         public ActionResult Delete(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Personal personal = db.Personal.Find(id);
-            if (personal == null)
+            RolesPersonal rolesPersonal = db.RolesPersonal.Find(id);
+            if (rolesPersonal == null)
             {
                 return HttpNotFound();
             }
-            return View(personal);
+            return View(rolesPersonal);
         }
 
-        // POST: Personal/Delete/5
+        // POST: RolesPersonal/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            Personal personal = db.Personal.Find(id);
-            db.Personal.Remove(personal);
+            RolesPersonal rolesPersonal = db.RolesPersonal.Find(id);
+            db.RolesPersonal.Remove(rolesPersonal);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

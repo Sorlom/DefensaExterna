@@ -16,7 +16,7 @@ namespace SistemaVentaPrestamo.Models
     {
         public int idVenta { get; set; }
         public int idRepuesto { get; set; }
-        public string Descripcion { get; set; }
+        public int Cantidad { get; set; }
     
         public virtual Repuesto Repuesto { get; set; }
         public virtual Venta Venta { get; set; }

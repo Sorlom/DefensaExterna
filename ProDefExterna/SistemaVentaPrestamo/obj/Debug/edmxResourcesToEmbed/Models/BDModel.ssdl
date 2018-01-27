@@ -38,11 +38,11 @@ advertencia 6002: La tabla o vista 'BDDEFEXT.dbo.DetalleDevolucion' no tiene def
     <Key>
       <PropertyRef Name="idDevolucion" />
       <PropertyRef Name="idRepuesto" />
-      <PropertyRef Name="Descripcion" />
+      <PropertyRef Name="Cantidad" />
     </Key>
     <Property Name="idDevolucion" Type="int" Nullable="false" />
     <Property Name="idRepuesto" Type="int" Nullable="false" />
-    <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Cantidad" Type="int" Nullable="false" />
   </EntityType>
   <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'BDDEFEXT.dbo.DetallePrestamo' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -50,10 +50,12 @@ advertencia 6002: La tabla o vista 'BDDEFEXT.dbo.DetallePrestamo' no tiene defin
     <Key>
       <PropertyRef Name="idPrestamo" />
       <PropertyRef Name="idRepuesto" />
+      <PropertyRef Name="Cantidad" />
       <PropertyRef Name="Estado" />
     </Key>
     <Property Name="idPrestamo" Type="int" Nullable="false" />
     <Property Name="idRepuesto" Type="int" Nullable="false" />
+    <Property Name="Cantidad" Type="int" Nullable="false" />
     <Property Name="Estado" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <!--Errores durante la generación:
@@ -62,11 +64,11 @@ advertencia 6002: La tabla o vista 'BDDEFEXT.dbo.DetalleVenta' no tiene definida
     <Key>
       <PropertyRef Name="idVenta" />
       <PropertyRef Name="idRepuesto" />
-      <PropertyRef Name="Descripcion" />
+      <PropertyRef Name="Cantidad" />
     </Key>
     <Property Name="idVenta" Type="int" Nullable="false" />
     <Property Name="idRepuesto" Type="int" Nullable="false" />
-    <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Cantidad" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Devolucion">
     <Key>
@@ -423,13 +425,14 @@ advertencia 6002: La tabla o vista 'BDDEFEXT.dbo.RolesPersonal' no tiene definid
       <DefiningQuery>SELECT 
     [DetalleDevolucion].[idDevolucion] AS [idDevolucion], 
     [DetalleDevolucion].[idRepuesto] AS [idRepuesto], 
-    [DetalleDevolucion].[Descripcion] AS [Descripcion]
+    [DetalleDevolucion].[Cantidad] AS [Cantidad]
     FROM [dbo].[DetalleDevolucion] AS [DetalleDevolucion]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="DetallePrestamo" EntityType="Self.DetallePrestamo" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [DetallePrestamo].[idPrestamo] AS [idPrestamo], 
     [DetallePrestamo].[idRepuesto] AS [idRepuesto], 
+    [DetallePrestamo].[Cantidad] AS [Cantidad], 
     [DetallePrestamo].[Estado] AS [Estado]
     FROM [dbo].[DetallePrestamo] AS [DetallePrestamo]</DefiningQuery>
     </EntitySet>
@@ -437,7 +440,7 @@ advertencia 6002: La tabla o vista 'BDDEFEXT.dbo.RolesPersonal' no tiene definid
       <DefiningQuery>SELECT 
     [DetalleVenta].[idVenta] AS [idVenta], 
     [DetalleVenta].[idRepuesto] AS [idRepuesto], 
-    [DetalleVenta].[Descripcion] AS [Descripcion]
+    [DetalleVenta].[Cantidad] AS [Cantidad]
     FROM [dbo].[DetalleVenta] AS [DetalleVenta]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="RolesPersonal" EntityType="Self.RolesPersonal" store:Type="Tables" store:Schema="dbo">

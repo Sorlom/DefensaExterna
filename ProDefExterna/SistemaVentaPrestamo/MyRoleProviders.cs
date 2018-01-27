@@ -49,7 +49,11 @@ namespace SistemaVentaPrestamo
 
         public override string[] GetRolesForUser(string username)
         {
-            throw new NotImplementedException();
+            BDDEFEXTEntities db = new BDDEFEXTEntities();
+            string Res = "R" + db.RolesPersonal.Where(x => x.Login == username).FirstOrDefault().idRol;
+            string[] results = { Res };
+            return results;
+            
         }
 
         public override string[] GetUsersInRole(string roleName)

@@ -17,13 +17,39 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Nombre de aplicación", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Linea Nº14", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Roles", "Index", "Roles")</li>
-                    <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        if (User.IsInRole("R1"))
+                        {
+                            <li>@Html.ActionLink("Personal", "Index", "Personal")</li>
+                            <li>@Html.ActionLink("Asignar Roles", "Index", "RolesPersonal")</li>
+                        }
+                        if (User.IsInRole("R1") || User.IsInRole("R2"))
+                        {
+                            <li>@Html.ActionLink("Prestamo", "Index", "Cliente")</li>
+                            <li>@Html.ActionLink("Devolucion", "Index", "Poliza")</li>
+                            <li>@Html.ActionLink("Inventario", "Index", "Siniestro")</li>
+                        }
+                        if (User.IsInRole("R1") || User.IsInRole("R3"))
+                        {
+                            <li>@Html.ActionLink("Venta", "Index", "DetalleGasto")</li>
+                        }                        
+                        if (User.IsInRole("R1") || User.IsInRole("R4"))
+                        {
+                            <li>@Html.ActionLink("Reportes", "Index", "Report")</li>
+                        }
+                        <li><a href="#">Bienvenido Usuario: @User.Identity.Name</a></li>
+                        <li>@Html.ActionLink("Logout", "Logout", "Login")</li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Login", "Index", "Login")</li>
+                    }
+
                 </ul>
             </div>
         </div>
@@ -32,7 +58,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
+            <p>&copy; UTEPSA - Defensa Externa - Ing. Sistemas - Jose Solano Romero</p>
         </footer>
     </div>
 

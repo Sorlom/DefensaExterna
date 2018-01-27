@@ -121,30 +121,13 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="DetalleDevolucion">
-      <EntityTypeMapping TypeName="BDDEFEXTModel.DetalleDevolucion">
-        <MappingFragment StoreEntitySet="DetalleDevolucion">
-          <ScalarProperty Name="idDevolucion" ColumnName="idDevolucion" />
-          <ScalarProperty Name="idRepuesto" ColumnName="idRepuesto" />
-          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="DetallePrestamo">
       <EntityTypeMapping TypeName="BDDEFEXTModel.DetallePrestamo">
         <MappingFragment StoreEntitySet="DetallePrestamo">
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
           <ScalarProperty Name="idPrestamo" ColumnName="idPrestamo" />
           <ScalarProperty Name="idRepuesto" ColumnName="idRepuesto" />
           <ScalarProperty Name="Estado" ColumnName="Estado" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="DetalleVenta">
-      <EntityTypeMapping TypeName="BDDEFEXTModel.DetalleVenta">
-        <MappingFragment StoreEntitySet="DetalleVenta">
-          <ScalarProperty Name="idVenta" ColumnName="idVenta" />
-          <ScalarProperty Name="idRepuesto" ColumnName="idRepuesto" />
-          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -154,6 +137,24 @@
           <ScalarProperty Name="Login" ColumnName="Login" />
           <ScalarProperty Name="idRol" ColumnName="idRol" />
           <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DetalleDevolucion">
+      <EntityTypeMapping TypeName="BDDEFEXTModel.DetalleDevolucion">
+        <MappingFragment StoreEntitySet="DetalleDevolucion">
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="idRepuesto" ColumnName="idRepuesto" />
+          <ScalarProperty Name="idDevolucion" ColumnName="idDevolucion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DetalleVenta">
+      <EntityTypeMapping TypeName="BDDEFEXTModel.DetalleVenta">
+        <MappingFragment StoreEntitySet="DetalleVenta">
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="idRepuesto" ColumnName="idRepuesto" />
+          <ScalarProperty Name="idVenta" ColumnName="idVenta" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
