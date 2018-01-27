@@ -5,8 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+
+    
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -30,14 +33,14 @@
                         }
                         if (User.IsInRole("R1") || User.IsInRole("R2"))
                         {
-                            <li>@Html.ActionLink("Prestamo", "Index", "Cliente")</li>
+                            <li>@Html.ActionLink("Prestamos", "Index", "Prestamos")</li>
                             <li>@Html.ActionLink("Devolucion", "Index", "Poliza")</li>
                             <li>@Html.ActionLink("Inventario", "Index", "Siniestro")</li>
                         }
                         if (User.IsInRole("R1") || User.IsInRole("R3"))
                         {
                             <li>@Html.ActionLink("Venta", "Index", "DetalleGasto")</li>
-                        }                        
+                        }
                         if (User.IsInRole("R1") || User.IsInRole("R4"))
                         {
                             <li>@Html.ActionLink("Reportes", "Index", "Report")</li>
