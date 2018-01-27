@@ -1,0 +1,50 @@
+﻿@model SistemaVentaPrestamo.Models.Interno
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Interno</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Chasis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Chasis)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Placa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Placa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Modelo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Modelo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DerechoLinea.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DerechoLinea.Descripcion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idInterno }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

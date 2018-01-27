@@ -14,6 +14,7 @@ namespace SistemaVentaPrestamo.Models
     
     public partial class RolesPersonal
     {
+        public int idRolPer { get; set; }
         public string Login { get; set; }
         public int idRol { get; set; }
         public string Descripcion { get; set; }

@@ -14,6 +14,7 @@ namespace SistemaVentaPrestamo.Models
     
     public partial class ChoferDerLin
     {
+        public int idChoDer { get; set; }
         public string Login { get; set; }
         public int idDerechoLinea { get; set; }
         public string Descripcion { get; set; }

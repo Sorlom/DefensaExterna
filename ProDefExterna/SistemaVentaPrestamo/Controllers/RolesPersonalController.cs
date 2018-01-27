@@ -10,7 +10,6 @@ using SistemaVentaPrestamo.Models;
 
 namespace SistemaVentaPrestamo.Controllers
 {
-    [Authorize(Roles = "R1")]
     public class RolesPersonalController : Controller
     {
         private BDDEFEXTEntities db = new BDDEFEXTEntities();
@@ -23,7 +22,7 @@ namespace SistemaVentaPrestamo.Controllers
         }
 
         // GET: RolesPersonal/Details/5
-        public ActionResult Details(string id)
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
@@ -40,7 +39,7 @@ namespace SistemaVentaPrestamo.Controllers
         // GET: RolesPersonal/Create
         public ActionResult Create()
         {
-            ViewBag.Login = new SelectList(db.Personal, "Login", "Password");
+            ViewBag.Login = new SelectList(db.Personal, "Login", "Login");
             ViewBag.idRol = new SelectList(db.Roles, "idRol", "Nombre");
             return View();
         }
@@ -50,7 +49,7 @@ namespace SistemaVentaPrestamo.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Login,idRol,Descripcion")] RolesPersonal rolesPersonal)
+        public ActionResult Create([Bind(Include = "idRolPer,Login,idRol,Descripcion")] RolesPersonal rolesPersonal)
         {
             if (ModelState.IsValid)
             {
@@ -59,13 +58,13 @@ namespace SistemaVentaPrestamo.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Login = new SelectList(db.Personal, "Login", "Password", rolesPersonal.Login);
+            ViewBag.Login = new SelectList(db.Personal, "Login", "Login", rolesPersonal.Login);
             ViewBag.idRol = new SelectList(db.Roles, "idRol", "Nombre", rolesPersonal.idRol);
             return View(rolesPersonal);
         }
 
         // GET: RolesPersonal/Edit/5
-        public ActionResult Edit(string id)
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
@@ -76,7 +75,7 @@ namespace SistemaVentaPrestamo.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Login = new SelectList(db.Personal, "Login", "Password", rolesPersonal.Login);
+            ViewBag.Login = new SelectList(db.Personal, "Login", "Login", rolesPersonal.Login);
             ViewBag.idRol = new SelectList(db.Roles, "idRol", "Nombre", rolesPersonal.idRol);
             return View(rolesPersonal);
         }
@@ -86,7 +85,7 @@ namespace SistemaVentaPrestamo.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Login,idRol,Descripcion")] RolesPersonal rolesPersonal)
+        public ActionResult Edit([Bind(Include = "idRolPer,Login,idRol,Descripcion")] RolesPersonal rolesPersonal)
         {
             if (ModelState.IsValid)
             {
@@ -94,13 +93,13 @@ namespace SistemaVentaPrestamo.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Login = new SelectList(db.Personal, "Login", "Password", rolesPersonal.Login);
+            ViewBag.Login = new SelectList(db.Personal, "Login", "Login", rolesPersonal.Login);
             ViewBag.idRol = new SelectList(db.Roles, "idRol", "Nombre", rolesPersonal.idRol);
             return View(rolesPersonal);
         }
 
         // GET: RolesPersonal/Delete/5
-        public ActionResult Delete(string id)
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
@@ -117,7 +116,7 @@ namespace SistemaVentaPrestamo.Controllers
         // POST: RolesPersonal/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        public ActionResult DeleteConfirmed(int id)
         {
             RolesPersonal rolesPersonal = db.RolesPersonal.Find(id);
             db.RolesPersonal.Remove(rolesPersonal);

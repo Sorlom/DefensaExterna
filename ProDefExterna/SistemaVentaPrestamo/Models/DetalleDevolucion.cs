@@ -14,6 +14,7 @@ namespace SistemaVentaPrestamo.Models
     
     public partial class DetalleDevolucion
     {
+        public int idDetDev { get; set; }
         public int idDevolucion { get; set; }
         public int idRepuesto { get; set; }
         public int Cantidad { get; set; }

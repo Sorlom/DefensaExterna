@@ -17,10 +17,10 @@ namespace SistemaVentaPrestamo.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public DerechoLinea()
         {
-            this.ChoferDerLin = new HashSet<ChoferDerLin>();
             this.Interno = new HashSet<Interno>();
             this.Prestamo = new HashSet<Prestamo>();
             this.Venta = new HashSet<Venta>();
+            this.ChoferDerLin = new HashSet<ChoferDerLin>();
         }
     
         public int idDerechoLinea { get; set; }
@@ -28,8 +28,6 @@ namespace SistemaVentaPrestamo.Models
         public string Estado { get; set; }
         public string idDueño { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ChoferDerLin> ChoferDerLin { get; set; }
         public virtual Personal Personal { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Interno> Interno { get; set; }
@@ -37,5 +35,7 @@ namespace SistemaVentaPrestamo.Models
         public virtual ICollection<Prestamo> Prestamo { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Venta> Venta { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ChoferDerLin> ChoferDerLin { get; set; }
     }
 }

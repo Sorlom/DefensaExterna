@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="1782e98e5c984a04b53f62de978a9307" Name="Diagram1">
+      <Diagram DiagramId="1782e98e5c984a04b53f62de978a9307" Name="Diagram1" ZoomLevel="64">
         <EntityTypeShape EntityType="BDDEFEXTModel.Bitacora" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BDDEFEXTModel.DerechoLinea" Width="1.5" PointX="3" PointY="9" IsExpanded="true" />
         <EntityTypeShape EntityType="BDDEFEXTModel.Devolucion" Width="1.5" PointX="10.5" PointY="9.25" IsExpanded="true" />
@@ -15,32 +15,32 @@
         <EntityTypeShape EntityType="BDDEFEXTModel.Roles" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
         <EntityTypeShape EntityType="BDDEFEXTModel.TipoRepuesto" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="BDDEFEXTModel.Venta" Width="1.5" PointX="5.25" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDDEFEXTModel.ChoferDerLin" Width="1.5" PointX="5.25" PointY="12.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDDEFEXTModel.DetallePrestamo" Width="1.5" PointX="10.5" PointY="6.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDDEFEXTModel.RolesPersonal" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
-        <AssociationConnector Association="BDDEFEXTModel.FK__ChoferDer__idDer__2E1BDC42" ManuallyRouted="false" />
         <AssociationConnector Association="BDDEFEXTModel.FK__DerechoLi__idDue__1920BF5C" ManuallyRouted="false" />
         <AssociationConnector Association="BDDEFEXTModel.FK__Interno__idDerec__1BFD2C07" ManuallyRouted="false" />
         <AssociationConnector Association="BDDEFEXTModel.FK__Prestamo__idDere__239E4DCF" ManuallyRouted="false" />
         <AssociationConnector Association="BDDEFEXTModel.FK__Venta__idDerecho__1ED998B2" ManuallyRouted="false" />
         <AssociationConnector Association="BDDEFEXTModel.FK__Devolucio__idPre__286302EC" ManuallyRouted="false" />
-        <AssociationConnector Association="BDDEFEXTModel.FK__ChoferDer__Login__2D27B809" ManuallyRouted="false" />
         <AssociationConnector Association="BDDEFEXTModel.FK__Prestamo__idChof__24927208" ManuallyRouted="false" />
         <AssociationConnector Association="BDDEFEXTModel.FK__Prestamo__idEnca__25869641" ManuallyRouted="false" />
-        <AssociationConnector Association="BDDEFEXTModel.FK__RolesPers__Login__2A4B4B5E" ManuallyRouted="false" />
         <AssociationConnector Association="BDDEFEXTModel.FK__Venta__idChofer__1FCDBCEB" ManuallyRouted="false" />
         <AssociationConnector Association="BDDEFEXTModel.FK__Venta__idEncarga__20C1E124" ManuallyRouted="false" />
-        <AssociationConnector Association="BDDEFEXTModel.FK__DetallePr__idPre__35BCFE0A" ManuallyRouted="false" />
-        <AssociationConnector Association="BDDEFEXTModel.FK__DetallePr__idRep__36B12243" ManuallyRouted="false" />
         <AssociationConnector Association="BDDEFEXTModel.FK__Repuesto__idTipo__164452B1" ManuallyRouted="false" />
-        <AssociationConnector Association="BDDEFEXTModel.FK__RolesPers__idRol__2B3F6F97" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="BDDEFEXTModel.DetalleDevolucion" Width="1.5" PointX="12.75" PointY="5.25" />
+        <EntityTypeShape EntityType="BDDEFEXTModel.ChoferDerLin" Width="1.5" PointX="5.25" PointY="12.25" />
+        <EntityTypeShape EntityType="BDDEFEXTModel.DetalleDevolucion" Width="1.5" PointX="12.75" PointY="5.125" />
+        <EntityTypeShape EntityType="BDDEFEXTModel.DetallePrestamo" Width="1.5" PointX="10.5" PointY="5.375" />
         <EntityTypeShape EntityType="BDDEFEXTModel.DetalleVenta" Width="1.5" PointX="7.5" PointY="4.5" />
-        <AssociationConnector Association="BDDEFEXTModel.FK__DetalleDe__idDev__32E0915F" />
-        <AssociationConnector Association="BDDEFEXTModel.FK__DetalleDe__idRep__33D4B598" />
-        <AssociationConnector Association="BDDEFEXTModel.FK__DetalleVe__idRep__30F848ED" />
-        <AssociationConnector Association="BDDEFEXTModel.FK__DetalleVe__idVen__300424B4" />
-      </Diagram>
+        <EntityTypeShape EntityType="BDDEFEXTModel.RolesPersonal" Width="1.5" PointX="3" PointY="5.75" />
+        <AssociationConnector Association="BDDEFEXTModel.FK__ChoferDer__idDer__300424B4" />
+        <AssociationConnector Association="BDDEFEXTModel.FK__ChoferDer__Login__2F10007B" />
+        <AssociationConnector Association="BDDEFEXTModel.FK__DetalleDe__idDev__36B12243" />
+        <AssociationConnector Association="BDDEFEXTModel.FK__DetalleDe__idRep__37A5467C" />
+        <AssociationConnector Association="BDDEFEXTModel.FK__DetallePr__idPre__3A81B327" />
+        <AssociationConnector Association="BDDEFEXTModel.FK__DetallePr__idRep__3B75D760" />
+        <AssociationConnector Association="BDDEFEXTModel.FK__DetalleVe__idRep__33D4B598" />
+        <AssociationConnector Association="BDDEFEXTModel.FK__DetalleVe__idVen__32E0915F" />
+        <AssociationConnector Association="BDDEFEXTModel.FK__RolesPers__Login__2B3F6F97" />
+        <AssociationConnector Association="BDDEFEXTModel.FK__RolesPers__idRol__2C3393D0" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

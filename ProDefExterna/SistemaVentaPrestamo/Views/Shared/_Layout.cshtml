@@ -28,8 +28,18 @@
                     {
                         if (User.IsInRole("R1"))
                         {
-                            <li>@Html.ActionLink("Personal", "Index", "Personal")</li>
-                            <li>@Html.ActionLink("Asignar Roles", "Index", "RolesPersonal")</li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    Administrador
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("Personal", "Index", "Personal")</li>
+                                    <li>@Html.ActionLink("Asignar Roles", "Index", "RolesPersonal")</li>
+                                    <li>@Html.ActionLink("Interno", "Index", "Interno")</li>
+                                    <li>@Html.ActionLink("Derecho Linea", "Index", "DerechoLinea")</li>
+                                </ul>
+                            </li>                           
                         }
                         if (User.IsInRole("R1") || User.IsInRole("R2"))
                         {
@@ -41,7 +51,7 @@
                         {
                             <li>@Html.ActionLink("Venta", "Index", "DetalleGasto")</li>
                         }
-                        if (User.IsInRole("R1") || User.IsInRole("R4"))
+                        if (User.IsInRole("R1") || User.IsInRole("R4") || User.IsInRole("R3") || User.IsInRole("R2"))
                         {
                             <li>@Html.ActionLink("Reportes", "Index", "Report")</li>
                         }

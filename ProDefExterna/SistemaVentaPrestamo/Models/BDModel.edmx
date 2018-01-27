@@ -16,14 +16,11 @@
           <Property Name="Usuario" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Aplicacion" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDEFEXT.dbo.ChoferDerLin' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="ChoferDerLin">
           <Key>
-            <PropertyRef Name="Login" />
-            <PropertyRef Name="idDerechoLinea" />
-            <PropertyRef Name="Descripcion" />
+            <PropertyRef Name="idChoDer" />
           </Key>
+          <Property Name="idChoDer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Login" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="idDerechoLinea" Type="int" Nullable="false" />
           <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
@@ -37,40 +34,30 @@ advertencia 6002: La tabla o vista 'BDDEFEXT.dbo.ChoferDerLin' no tiene definida
           <Property Name="Estado" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="idDueño" Type="varchar" MaxLength="30" Nullable="false" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDEFEXT.dbo.DetalleDevolucion' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="DetalleDevolucion">
           <Key>
-            <PropertyRef Name="idDevolucion" />
-            <PropertyRef Name="idRepuesto" />
-            <PropertyRef Name="Cantidad" />
+            <PropertyRef Name="idDetDev" />
           </Key>
+          <Property Name="idDetDev" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="idDevolucion" Type="int" Nullable="false" />
           <Property Name="idRepuesto" Type="int" Nullable="false" />
           <Property Name="Cantidad" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDEFEXT.dbo.DetallePrestamo' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="DetallePrestamo">
           <Key>
-            <PropertyRef Name="idPrestamo" />
-            <PropertyRef Name="idRepuesto" />
-            <PropertyRef Name="Cantidad" />
-            <PropertyRef Name="Estado" />
+            <PropertyRef Name="idDetPre" />
           </Key>
+          <Property Name="idDetPre" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="idPrestamo" Type="int" Nullable="false" />
           <Property Name="idRepuesto" Type="int" Nullable="false" />
           <Property Name="Cantidad" Type="int" Nullable="false" />
           <Property Name="Estado" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDEFEXT.dbo.DetalleVenta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="DetalleVenta">
           <Key>
-            <PropertyRef Name="idVenta" />
-            <PropertyRef Name="idRepuesto" />
-            <PropertyRef Name="Cantidad" />
+            <PropertyRef Name="idDetVen" />
           </Key>
+          <Property Name="idDetVen" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="idVenta" Type="int" Nullable="false" />
           <Property Name="idRepuesto" Type="int" Nullable="false" />
           <Property Name="Cantidad" Type="int" Nullable="false" />
@@ -135,14 +122,11 @@ advertencia 6002: La tabla o vista 'BDDEFEXT.dbo.DetalleVenta' no tiene definida
           <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDEFEXT.dbo.RolesPersonal' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="RolesPersonal">
           <Key>
-            <PropertyRef Name="Login" />
-            <PropertyRef Name="idRol" />
-            <PropertyRef Name="Descripcion" />
+            <PropertyRef Name="idRolPer" />
           </Key>
+          <Property Name="idRolPer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Login" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="idRol" Type="int" Nullable="false" />
           <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
@@ -168,7 +152,7 @@ advertencia 6002: La tabla o vista 'BDDEFEXT.dbo.RolesPersonal' no tiene definid
           <Property Name="idChofer" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="idEncargado" Type="varchar" MaxLength="30" Nullable="false" />
         </EntityType>
-        <Association Name="FK__ChoferDer__idDer__2E1BDC42">
+        <Association Name="FK__ChoferDer__idDer__300424B4">
           <End Role="DerechoLinea" Type="Self.DerechoLinea" Multiplicity="1" />
           <End Role="ChoferDerLin" Type="Self.ChoferDerLin" Multiplicity="*" />
           <ReferentialConstraint>
@@ -180,7 +164,7 @@ advertencia 6002: La tabla o vista 'BDDEFEXT.dbo.RolesPersonal' no tiene definid
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ChoferDer__Login__2D27B809">
+        <Association Name="FK__ChoferDer__Login__2F10007B">
           <End Role="Personal" Type="Self.Personal" Multiplicity="1" />
           <End Role="ChoferDerLin" Type="Self.ChoferDerLin" Multiplicity="*" />
           <ReferentialConstraint>
@@ -204,7 +188,7 @@ advertencia 6002: La tabla o vista 'BDDEFEXT.dbo.RolesPersonal' no tiene definid
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DetalleDe__idDev__32E0915F">
+        <Association Name="FK__DetalleDe__idDev__36B12243">
           <End Role="Devolucion" Type="Self.Devolucion" Multiplicity="1" />
           <End Role="DetalleDevolucion" Type="Self.DetalleDevolucion" Multiplicity="*" />
           <ReferentialConstraint>
@@ -216,7 +200,7 @@ advertencia 6002: La tabla o vista 'BDDEFEXT.dbo.RolesPersonal' no tiene definid
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DetalleDe__idRep__33D4B598">
+        <Association Name="FK__DetalleDe__idRep__37A5467C">
           <End Role="Repuesto" Type="Self.Repuesto" Multiplicity="1" />
           <End Role="DetalleDevolucion" Type="Self.DetalleDevolucion" Multiplicity="*" />
           <ReferentialConstraint>
@@ -228,7 +212,7 @@ advertencia 6002: La tabla o vista 'BDDEFEXT.dbo.RolesPersonal' no tiene definid
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DetallePr__idPre__35BCFE0A">
+        <Association Name="FK__DetallePr__idPre__3A81B327">
           <End Role="Prestamo" Type="Self.Prestamo" Multiplicity="1" />
           <End Role="DetallePrestamo" Type="Self.DetallePrestamo" Multiplicity="*" />
           <ReferentialConstraint>
@@ -240,7 +224,7 @@ advertencia 6002: La tabla o vista 'BDDEFEXT.dbo.RolesPersonal' no tiene definid
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DetallePr__idRep__36B12243">
+        <Association Name="FK__DetallePr__idRep__3B75D760">
           <End Role="Repuesto" Type="Self.Repuesto" Multiplicity="1" />
           <End Role="DetallePrestamo" Type="Self.DetallePrestamo" Multiplicity="*" />
           <ReferentialConstraint>
@@ -252,7 +236,7 @@ advertencia 6002: La tabla o vista 'BDDEFEXT.dbo.RolesPersonal' no tiene definid
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DetalleVe__idRep__30F848ED">
+        <Association Name="FK__DetalleVe__idRep__33D4B598">
           <End Role="Repuesto" Type="Self.Repuesto" Multiplicity="1" />
           <End Role="DetalleVenta" Type="Self.DetalleVenta" Multiplicity="*" />
           <ReferentialConstraint>
@@ -264,7 +248,7 @@ advertencia 6002: La tabla o vista 'BDDEFEXT.dbo.RolesPersonal' no tiene definid
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DetalleVe__idVen__300424B4">
+        <Association Name="FK__DetalleVe__idVen__32E0915F">
           <End Role="Venta" Type="Self.Venta" Multiplicity="1" />
           <End Role="DetalleVenta" Type="Self.DetalleVenta" Multiplicity="*" />
           <ReferentialConstraint>
@@ -348,7 +332,7 @@ advertencia 6002: La tabla o vista 'BDDEFEXT.dbo.RolesPersonal' no tiene definid
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RolesPers__idRol__2B3F6F97">
+        <Association Name="FK__RolesPers__idRol__2C3393D0">
           <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
           <End Role="RolesPersonal" Type="Self.RolesPersonal" Multiplicity="*" />
           <ReferentialConstraint>
@@ -360,7 +344,7 @@ advertencia 6002: La tabla o vista 'BDDEFEXT.dbo.RolesPersonal' no tiene definid
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RolesPers__Login__2A4B4B5E">
+        <Association Name="FK__RolesPers__Login__2B3F6F97">
           <End Role="Personal" Type="Self.Personal" Multiplicity="1" />
           <End Role="RolesPersonal" Type="Self.RolesPersonal" Multiplicity="*" />
           <ReferentialConstraint>
@@ -410,56 +394,25 @@ advertencia 6002: La tabla o vista 'BDDEFEXT.dbo.RolesPersonal' no tiene definid
         </Association>
         <EntityContainer Name="BDDEFEXTModelStoreContainer">
           <EntitySet Name="Bitacora" EntityType="Self.Bitacora" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ChoferDerLin" EntityType="Self.ChoferDerLin" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DerechoLinea" EntityType="Self.DerechoLinea" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DetalleDevolucion" EntityType="Self.DetalleDevolucion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DetallePrestamo" EntityType="Self.DetallePrestamo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DetalleVenta" EntityType="Self.DetalleVenta" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Devolucion" EntityType="Self.Devolucion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Interno" EntityType="Self.Interno" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Personal" EntityType="Self.Personal" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Prestamo" EntityType="Self.Prestamo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Repuesto" EntityType="Self.Repuesto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RolesPersonal" EntityType="Self.RolesPersonal" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TipoRepuesto" EntityType="Self.TipoRepuesto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Venta" EntityType="Self.Venta" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ChoferDerLin" EntityType="Self.ChoferDerLin" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [ChoferDerLin].[Login] AS [Login], 
-    [ChoferDerLin].[idDerechoLinea] AS [idDerechoLinea], 
-    [ChoferDerLin].[Descripcion] AS [Descripcion]
-    FROM [dbo].[ChoferDerLin] AS [ChoferDerLin]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="DetalleDevolucion" EntityType="Self.DetalleDevolucion" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [DetalleDevolucion].[idDevolucion] AS [idDevolucion], 
-    [DetalleDevolucion].[idRepuesto] AS [idRepuesto], 
-    [DetalleDevolucion].[Cantidad] AS [Cantidad]
-    FROM [dbo].[DetalleDevolucion] AS [DetalleDevolucion]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="DetallePrestamo" EntityType="Self.DetallePrestamo" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [DetallePrestamo].[idPrestamo] AS [idPrestamo], 
-    [DetallePrestamo].[idRepuesto] AS [idRepuesto], 
-    [DetallePrestamo].[Cantidad] AS [Cantidad], 
-    [DetallePrestamo].[Estado] AS [Estado]
-    FROM [dbo].[DetallePrestamo] AS [DetallePrestamo]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="DetalleVenta" EntityType="Self.DetalleVenta" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [DetalleVenta].[idVenta] AS [idVenta], 
-    [DetalleVenta].[idRepuesto] AS [idRepuesto], 
-    [DetalleVenta].[Cantidad] AS [Cantidad]
-    FROM [dbo].[DetalleVenta] AS [DetalleVenta]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="RolesPersonal" EntityType="Self.RolesPersonal" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [RolesPersonal].[Login] AS [Login], 
-    [RolesPersonal].[idRol] AS [idRol], 
-    [RolesPersonal].[Descripcion] AS [Descripcion]
-    FROM [dbo].[RolesPersonal] AS [RolesPersonal]</DefiningQuery>
-          </EntitySet>
-          <AssociationSet Name="FK__ChoferDer__idDer__2E1BDC42" Association="Self.FK__ChoferDer__idDer__2E1BDC42">
+          <AssociationSet Name="FK__ChoferDer__idDer__300424B4" Association="Self.FK__ChoferDer__idDer__300424B4">
             <End Role="DerechoLinea" EntitySet="DerechoLinea" />
             <End Role="ChoferDerLin" EntitySet="ChoferDerLin" />
           </AssociationSet>
-          <AssociationSet Name="FK__ChoferDer__Login__2D27B809" Association="Self.FK__ChoferDer__Login__2D27B809">
+          <AssociationSet Name="FK__ChoferDer__Login__2F10007B" Association="Self.FK__ChoferDer__Login__2F10007B">
             <End Role="Personal" EntitySet="Personal" />
             <End Role="ChoferDerLin" EntitySet="ChoferDerLin" />
           </AssociationSet>
@@ -467,27 +420,27 @@ advertencia 6002: La tabla o vista 'BDDEFEXT.dbo.RolesPersonal' no tiene definid
             <End Role="Personal" EntitySet="Personal" />
             <End Role="DerechoLinea" EntitySet="DerechoLinea" />
           </AssociationSet>
-          <AssociationSet Name="FK__DetalleDe__idDev__32E0915F" Association="Self.FK__DetalleDe__idDev__32E0915F">
+          <AssociationSet Name="FK__DetalleDe__idDev__36B12243" Association="Self.FK__DetalleDe__idDev__36B12243">
             <End Role="Devolucion" EntitySet="Devolucion" />
             <End Role="DetalleDevolucion" EntitySet="DetalleDevolucion" />
           </AssociationSet>
-          <AssociationSet Name="FK__DetalleDe__idRep__33D4B598" Association="Self.FK__DetalleDe__idRep__33D4B598">
+          <AssociationSet Name="FK__DetalleDe__idRep__37A5467C" Association="Self.FK__DetalleDe__idRep__37A5467C">
             <End Role="Repuesto" EntitySet="Repuesto" />
             <End Role="DetalleDevolucion" EntitySet="DetalleDevolucion" />
           </AssociationSet>
-          <AssociationSet Name="FK__DetallePr__idPre__35BCFE0A" Association="Self.FK__DetallePr__idPre__35BCFE0A">
+          <AssociationSet Name="FK__DetallePr__idPre__3A81B327" Association="Self.FK__DetallePr__idPre__3A81B327">
             <End Role="Prestamo" EntitySet="Prestamo" />
             <End Role="DetallePrestamo" EntitySet="DetallePrestamo" />
           </AssociationSet>
-          <AssociationSet Name="FK__DetallePr__idRep__36B12243" Association="Self.FK__DetallePr__idRep__36B12243">
+          <AssociationSet Name="FK__DetallePr__idRep__3B75D760" Association="Self.FK__DetallePr__idRep__3B75D760">
             <End Role="Repuesto" EntitySet="Repuesto" />
             <End Role="DetallePrestamo" EntitySet="DetallePrestamo" />
           </AssociationSet>
-          <AssociationSet Name="FK__DetalleVe__idRep__30F848ED" Association="Self.FK__DetalleVe__idRep__30F848ED">
+          <AssociationSet Name="FK__DetalleVe__idRep__33D4B598" Association="Self.FK__DetalleVe__idRep__33D4B598">
             <End Role="Repuesto" EntitySet="Repuesto" />
             <End Role="DetalleVenta" EntitySet="DetalleVenta" />
           </AssociationSet>
-          <AssociationSet Name="FK__DetalleVe__idVen__300424B4" Association="Self.FK__DetalleVe__idVen__300424B4">
+          <AssociationSet Name="FK__DetalleVe__idVen__32E0915F" Association="Self.FK__DetalleVe__idVen__32E0915F">
             <End Role="Venta" EntitySet="Venta" />
             <End Role="DetalleVenta" EntitySet="DetalleVenta" />
           </AssociationSet>
@@ -515,11 +468,11 @@ advertencia 6002: La tabla o vista 'BDDEFEXT.dbo.RolesPersonal' no tiene definid
             <End Role="TipoRepuesto" EntitySet="TipoRepuesto" />
             <End Role="Repuesto" EntitySet="Repuesto" />
           </AssociationSet>
-          <AssociationSet Name="FK__RolesPers__idRol__2B3F6F97" Association="Self.FK__RolesPers__idRol__2B3F6F97">
+          <AssociationSet Name="FK__RolesPers__idRol__2C3393D0" Association="Self.FK__RolesPers__idRol__2C3393D0">
             <End Role="Roles" EntitySet="Roles" />
             <End Role="RolesPersonal" EntitySet="RolesPersonal" />
           </AssociationSet>
-          <AssociationSet Name="FK__RolesPers__Login__2A4B4B5E" Association="Self.FK__RolesPers__Login__2A4B4B5E">
+          <AssociationSet Name="FK__RolesPers__Login__2B3F6F97" Association="Self.FK__RolesPers__Login__2B3F6F97">
             <End Role="Personal" EntitySet="Personal" />
             <End Role="RolesPersonal" EntitySet="RolesPersonal" />
           </AssociationSet>
@@ -559,11 +512,11 @@ advertencia 6002: La tabla o vista 'BDDEFEXT.dbo.RolesPersonal' no tiene definid
           <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="idDueño" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="ChoferDerLin" Relationship="Self.FK__ChoferDer__idDer__2E1BDC42" FromRole="DerechoLinea" ToRole="ChoferDerLin" />
           <NavigationProperty Name="Personal" Relationship="Self.FK__DerechoLi__idDue__1920BF5C" FromRole="DerechoLinea" ToRole="Personal" />
           <NavigationProperty Name="Interno" Relationship="Self.FK__Interno__idDerec__1BFD2C07" FromRole="DerechoLinea" ToRole="Interno" />
           <NavigationProperty Name="Prestamo" Relationship="Self.FK__Prestamo__idDere__239E4DCF" FromRole="DerechoLinea" ToRole="Prestamo" />
           <NavigationProperty Name="Venta" Relationship="Self.FK__Venta__idDerecho__1ED998B2" FromRole="DerechoLinea" ToRole="Venta" />
+          <NavigationProperty Name="ChoferDerLin" Relationship="BDDEFEXTModel.FK__ChoferDer__idDer__300424B4" FromRole="DerechoLinea" ToRole="ChoferDerLin" />
         </EntityType>
         <EntityType Name="Devolucion">
           <Key>
@@ -574,7 +527,7 @@ advertencia 6002: La tabla o vista 'BDDEFEXT.dbo.RolesPersonal' no tiene definid
           <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="idPrestamo" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Prestamo" Relationship="Self.FK__Devolucio__idPre__286302EC" FromRole="Devolucion" ToRole="Prestamo" />
-          <NavigationProperty Name="DetalleDevolucion" Relationship="BDDEFEXTModel.FK__DetalleDe__idDev__32E0915F" FromRole="Devolucion" ToRole="DetalleDevolucion" />
+          <NavigationProperty Name="DetalleDevolucion" Relationship="BDDEFEXTModel.FK__DetalleDe__idDev__36B12243" FromRole="Devolucion" ToRole="DetalleDevolucion" />
         </EntityType>
         <EntityType Name="Interno">
           <Key>
@@ -598,12 +551,12 @@ advertencia 6002: La tabla o vista 'BDDEFEXT.dbo.RolesPersonal' no tiene definid
           <Property Name="Celular" Type="Int32" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="DerechoLinea" Relationship="Self.FK__DerechoLi__idDue__1920BF5C" FromRole="Personal" ToRole="DerechoLinea" />
-          <NavigationProperty Name="ChoferDerLin" Relationship="Self.FK__ChoferDer__Login__2D27B809" FromRole="Personal" ToRole="ChoferDerLin" />
           <NavigationProperty Name="Prestamo" Relationship="Self.FK__Prestamo__idChof__24927208" FromRole="Personal" ToRole="Prestamo" />
           <NavigationProperty Name="Prestamo1" Relationship="Self.FK__Prestamo__idEnca__25869641" FromRole="Personal" ToRole="Prestamo" />
-          <NavigationProperty Name="RolesPersonal" Relationship="Self.FK__RolesPers__Login__2A4B4B5E" FromRole="Personal" ToRole="RolesPersonal" />
           <NavigationProperty Name="Venta" Relationship="Self.FK__Venta__idChofer__1FCDBCEB" FromRole="Personal" ToRole="Venta" />
           <NavigationProperty Name="Venta1" Relationship="Self.FK__Venta__idEncarga__20C1E124" FromRole="Personal" ToRole="Venta" />
+          <NavigationProperty Name="ChoferDerLin" Relationship="BDDEFEXTModel.FK__ChoferDer__Login__2F10007B" FromRole="Personal" ToRole="ChoferDerLin" />
+          <NavigationProperty Name="RolesPersonal" Relationship="BDDEFEXTModel.FK__RolesPers__Login__2B3F6F97" FromRole="Personal" ToRole="RolesPersonal" />
         </EntityType>
         <EntityType Name="Prestamo">
           <Key>
@@ -620,7 +573,7 @@ advertencia 6002: La tabla o vista 'BDDEFEXT.dbo.RolesPersonal' no tiene definid
           <NavigationProperty Name="Devolucion" Relationship="Self.FK__Devolucio__idPre__286302EC" FromRole="Prestamo" ToRole="Devolucion" />
           <NavigationProperty Name="Personal" Relationship="Self.FK__Prestamo__idChof__24927208" FromRole="Prestamo" ToRole="Personal" />
           <NavigationProperty Name="Personal1" Relationship="Self.FK__Prestamo__idEnca__25869641" FromRole="Prestamo" ToRole="Personal" />
-          <NavigationProperty Name="DetallePrestamo" Relationship="Self.FK__DetallePr__idPre__35BCFE0A" FromRole="Prestamo" ToRole="DetallePrestamo" />
+          <NavigationProperty Name="DetallePrestamo" Relationship="BDDEFEXTModel.FK__DetallePr__idPre__3A81B327" FromRole="Prestamo" ToRole="DetallePrestamo" />
         </EntityType>
         <EntityType Name="Repuesto">
           <Key>
@@ -631,10 +584,10 @@ advertencia 6002: La tabla o vista 'BDDEFEXT.dbo.RolesPersonal' no tiene definid
           <Property Name="Cantidad" Type="Int32" Nullable="false" />
           <Property Name="Precio" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="idTipoRepuesto" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="DetallePrestamo" Relationship="Self.FK__DetallePr__idRep__36B12243" FromRole="Repuesto" ToRole="DetallePrestamo" />
           <NavigationProperty Name="TipoRepuesto" Relationship="Self.FK__Repuesto__idTipo__164452B1" FromRole="Repuesto" ToRole="TipoRepuesto" />
-          <NavigationProperty Name="DetalleDevolucion" Relationship="BDDEFEXTModel.FK__DetalleDe__idRep__33D4B598" FromRole="Repuesto" ToRole="DetalleDevolucion" />
-          <NavigationProperty Name="DetalleVenta" Relationship="BDDEFEXTModel.FK__DetalleVe__idRep__30F848ED" FromRole="Repuesto" ToRole="DetalleVenta" />
+          <NavigationProperty Name="DetalleDevolucion" Relationship="BDDEFEXTModel.FK__DetalleDe__idRep__37A5467C" FromRole="Repuesto" ToRole="DetalleDevolucion" />
+          <NavigationProperty Name="DetallePrestamo" Relationship="BDDEFEXTModel.FK__DetallePr__idRep__3B75D760" FromRole="Repuesto" ToRole="DetallePrestamo" />
+          <NavigationProperty Name="DetalleVenta" Relationship="BDDEFEXTModel.FK__DetalleVe__idRep__33D4B598" FromRole="Repuesto" ToRole="DetalleVenta" />
         </EntityType>
         <EntityType Name="Roles">
           <Key>
@@ -643,7 +596,7 @@ advertencia 6002: La tabla o vista 'BDDEFEXT.dbo.RolesPersonal' no tiene definid
           <Property Name="idRol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="RolesPersonal" Relationship="Self.FK__RolesPers__idRol__2B3F6F97" FromRole="Roles" ToRole="RolesPersonal" />
+          <NavigationProperty Name="RolesPersonal" Relationship="BDDEFEXTModel.FK__RolesPers__idRol__2C3393D0" FromRole="Roles" ToRole="RolesPersonal" />
         </EntityType>
         <EntityType Name="TipoRepuesto">
           <Key>
@@ -669,58 +622,8 @@ advertencia 6002: La tabla o vista 'BDDEFEXT.dbo.RolesPersonal' no tiene definid
           <NavigationProperty Name="DerechoLinea" Relationship="Self.FK__Venta__idDerecho__1ED998B2" FromRole="Venta" ToRole="DerechoLinea" />
           <NavigationProperty Name="Personal" Relationship="Self.FK__Venta__idChofer__1FCDBCEB" FromRole="Venta" ToRole="Personal" />
           <NavigationProperty Name="Personal1" Relationship="Self.FK__Venta__idEncarga__20C1E124" FromRole="Venta" ToRole="Personal" />
-          <NavigationProperty Name="DetalleVenta" Relationship="BDDEFEXTModel.FK__DetalleVe__idVen__300424B4" FromRole="Venta" ToRole="DetalleVenta" />
+          <NavigationProperty Name="DetalleVenta" Relationship="BDDEFEXTModel.FK__DetalleVe__idVen__32E0915F" FromRole="Venta" ToRole="DetalleVenta" />
         </EntityType>
-        <EntityType Name="ChoferDerLin">
-          <Key>
-            <PropertyRef Name="Login" />
-            <PropertyRef Name="idDerechoLinea" />
-            <PropertyRef Name="Descripcion" />
-          </Key>
-          <Property Name="Login" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="idDerechoLinea" Type="Int32" Nullable="false" />
-          <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="DerechoLinea" Relationship="Self.FK__ChoferDer__idDer__2E1BDC42" FromRole="ChoferDerLin" ToRole="DerechoLinea" />
-          <NavigationProperty Name="Personal" Relationship="Self.FK__ChoferDer__Login__2D27B809" FromRole="ChoferDerLin" ToRole="Personal" />
-        </EntityType>
-        <EntityType Name="DetallePrestamo">
-          <Key>
-            <PropertyRef Name="idPrestamo" />
-            <PropertyRef Name="idRepuesto" />
-            <PropertyRef Name="Estado" />
-            <PropertyRef Name="Cantidad" />
-          </Key>
-          <Property Name="idPrestamo" Type="Int32" Nullable="false" />
-          <Property Name="idRepuesto" Type="Int32" Nullable="false" />
-          <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Prestamo" Relationship="Self.FK__DetallePr__idPre__35BCFE0A" FromRole="DetallePrestamo" ToRole="Prestamo" />
-          <NavigationProperty Name="Repuesto" Relationship="Self.FK__DetallePr__idRep__36B12243" FromRole="DetallePrestamo" ToRole="Repuesto" />
-          <Property Name="Cantidad" Type="Int32" Nullable="false" />
-        </EntityType>
-        <EntityType Name="RolesPersonal">
-          <Key>
-            <PropertyRef Name="Login" />
-            <PropertyRef Name="idRol" />
-            <PropertyRef Name="Descripcion" />
-          </Key>
-          <Property Name="Login" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="idRol" Type="Int32" Nullable="false" />
-          <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Personal" Relationship="Self.FK__RolesPers__Login__2A4B4B5E" FromRole="RolesPersonal" ToRole="Personal" />
-          <NavigationProperty Name="Roles" Relationship="Self.FK__RolesPers__idRol__2B3F6F97" FromRole="RolesPersonal" ToRole="Roles" />
-        </EntityType>
-        <Association Name="FK__ChoferDer__idDer__2E1BDC42">
-          <End Role="DerechoLinea" Type="Self.DerechoLinea" Multiplicity="1" />
-          <End Role="ChoferDerLin" Type="Self.ChoferDerLin" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DerechoLinea">
-              <PropertyRef Name="idDerechoLinea" />
-            </Principal>
-            <Dependent Role="ChoferDerLin">
-              <PropertyRef Name="idDerechoLinea" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__DerechoLi__idDue__1920BF5C">
           <End Role="Personal" Type="Self.Personal" Multiplicity="1" />
           <End Role="DerechoLinea" Type="Self.DerechoLinea" Multiplicity="*" />
@@ -781,18 +684,6 @@ advertencia 6002: La tabla o vista 'BDDEFEXT.dbo.RolesPersonal' no tiene definid
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ChoferDer__Login__2D27B809">
-          <End Role="Personal" Type="Self.Personal" Multiplicity="1" />
-          <End Role="ChoferDerLin" Type="Self.ChoferDerLin" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Personal">
-              <PropertyRef Name="Login" />
-            </Principal>
-            <Dependent Role="ChoferDerLin">
-              <PropertyRef Name="Login" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__Prestamo__idChof__24927208">
           <End Role="Personal" Type="Self.Personal" Multiplicity="1" />
           <End Role="Prestamo" Type="Self.Prestamo" Multiplicity="*" />
@@ -814,18 +705,6 @@ advertencia 6002: La tabla o vista 'BDDEFEXT.dbo.RolesPersonal' no tiene definid
             </Principal>
             <Dependent Role="Prestamo">
               <PropertyRef Name="idEncargado" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__RolesPers__Login__2A4B4B5E">
-          <End Role="Personal" Type="Self.Personal" Multiplicity="1" />
-          <End Role="RolesPersonal" Type="Self.RolesPersonal" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Personal">
-              <PropertyRef Name="Login" />
-            </Principal>
-            <Dependent Role="RolesPersonal">
-              <PropertyRef Name="Login" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -853,30 +732,6 @@ advertencia 6002: La tabla o vista 'BDDEFEXT.dbo.RolesPersonal' no tiene definid
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DetallePr__idPre__35BCFE0A">
-          <End Role="Prestamo" Type="Self.Prestamo" Multiplicity="1" />
-          <End Role="DetallePrestamo" Type="Self.DetallePrestamo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Prestamo">
-              <PropertyRef Name="idPrestamo" />
-            </Principal>
-            <Dependent Role="DetallePrestamo">
-              <PropertyRef Name="idPrestamo" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__DetallePr__idRep__36B12243">
-          <End Role="Repuesto" Type="Self.Repuesto" Multiplicity="1" />
-          <End Role="DetallePrestamo" Type="Self.DetallePrestamo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Repuesto">
-              <PropertyRef Name="idRepuesto" />
-            </Principal>
-            <Dependent Role="DetallePrestamo">
-              <PropertyRef Name="idRepuesto" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__Repuesto__idTipo__164452B1">
           <End Role="TipoRepuesto" Type="Self.TipoRepuesto" Multiplicity="1" />
           <End Role="Repuesto" Type="Self.Repuesto" Multiplicity="*" />
@@ -886,18 +741,6 @@ advertencia 6002: La tabla o vista 'BDDEFEXT.dbo.RolesPersonal' no tiene definid
             </Principal>
             <Dependent Role="Repuesto">
               <PropertyRef Name="idTipoRepuesto" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__RolesPers__idRol__2B3F6F97">
-          <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
-          <End Role="RolesPersonal" Type="Self.RolesPersonal" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Roles">
-              <PropertyRef Name="idRol" />
-            </Principal>
-            <Dependent Role="RolesPersonal">
-              <PropertyRef Name="idRol" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -912,13 +755,6 @@ advertencia 6002: La tabla o vista 'BDDEFEXT.dbo.RolesPersonal' no tiene definid
           <EntitySet Name="Roles" EntityType="Self.Roles" />
           <EntitySet Name="TipoRepuesto" EntityType="Self.TipoRepuesto" />
           <EntitySet Name="Venta" EntityType="Self.Venta" />
-          <EntitySet Name="ChoferDerLin" EntityType="Self.ChoferDerLin" />
-          <EntitySet Name="DetallePrestamo" EntityType="Self.DetallePrestamo" />
-          <EntitySet Name="RolesPersonal" EntityType="Self.RolesPersonal" />
-          <AssociationSet Name="FK__ChoferDer__idDer__2E1BDC42" Association="Self.FK__ChoferDer__idDer__2E1BDC42">
-            <End Role="DerechoLinea" EntitySet="DerechoLinea" />
-            <End Role="ChoferDerLin" EntitySet="ChoferDerLin" />
-          </AssociationSet>
           <AssociationSet Name="FK__DerechoLi__idDue__1920BF5C" Association="Self.FK__DerechoLi__idDue__1920BF5C">
             <End Role="Personal" EntitySet="Personal" />
             <End Role="DerechoLinea" EntitySet="DerechoLinea" />
@@ -939,10 +775,6 @@ advertencia 6002: La tabla o vista 'BDDEFEXT.dbo.RolesPersonal' no tiene definid
             <End Role="Prestamo" EntitySet="Prestamo" />
             <End Role="Devolucion" EntitySet="Devolucion" />
           </AssociationSet>
-          <AssociationSet Name="FK__ChoferDer__Login__2D27B809" Association="Self.FK__ChoferDer__Login__2D27B809">
-            <End Role="Personal" EntitySet="Personal" />
-            <End Role="ChoferDerLin" EntitySet="ChoferDerLin" />
-          </AssociationSet>
           <AssociationSet Name="FK__Prestamo__idChof__24927208" Association="Self.FK__Prestamo__idChof__24927208">
             <End Role="Personal" EntitySet="Personal" />
             <End Role="Prestamo" EntitySet="Prestamo" />
@@ -950,10 +782,6 @@ advertencia 6002: La tabla o vista 'BDDEFEXT.dbo.RolesPersonal' no tiene definid
           <AssociationSet Name="FK__Prestamo__idEnca__25869641" Association="Self.FK__Prestamo__idEnca__25869641">
             <End Role="Personal" EntitySet="Personal" />
             <End Role="Prestamo" EntitySet="Prestamo" />
-          </AssociationSet>
-          <AssociationSet Name="FK__RolesPers__Login__2A4B4B5E" Association="Self.FK__RolesPers__Login__2A4B4B5E">
-            <End Role="Personal" EntitySet="Personal" />
-            <End Role="RolesPersonal" EntitySet="RolesPersonal" />
           </AssociationSet>
           <AssociationSet Name="FK__Venta__idChofer__1FCDBCEB" Association="Self.FK__Venta__idChofer__1FCDBCEB">
             <End Role="Personal" EntitySet="Personal" />
@@ -963,66 +791,137 @@ advertencia 6002: La tabla o vista 'BDDEFEXT.dbo.RolesPersonal' no tiene definid
             <End Role="Personal" EntitySet="Personal" />
             <End Role="Venta" EntitySet="Venta" />
           </AssociationSet>
-          <AssociationSet Name="FK__DetallePr__idPre__35BCFE0A" Association="Self.FK__DetallePr__idPre__35BCFE0A">
-            <End Role="Prestamo" EntitySet="Prestamo" />
-            <End Role="DetallePrestamo" EntitySet="DetallePrestamo" />
-          </AssociationSet>
-          <AssociationSet Name="FK__DetallePr__idRep__36B12243" Association="Self.FK__DetallePr__idRep__36B12243">
-            <End Role="Repuesto" EntitySet="Repuesto" />
-            <End Role="DetallePrestamo" EntitySet="DetallePrestamo" />
-          </AssociationSet>
           <AssociationSet Name="FK__Repuesto__idTipo__164452B1" Association="Self.FK__Repuesto__idTipo__164452B1">
             <End Role="TipoRepuesto" EntitySet="TipoRepuesto" />
             <End Role="Repuesto" EntitySet="Repuesto" />
           </AssociationSet>
-          <AssociationSet Name="FK__RolesPers__idRol__2B3F6F97" Association="Self.FK__RolesPers__idRol__2B3F6F97">
-            <End Role="Roles" EntitySet="Roles" />
-            <End Role="RolesPersonal" EntitySet="RolesPersonal" />
-          </AssociationSet>
+          <EntitySet Name="ChoferDerLin" EntityType="BDDEFEXTModel.ChoferDerLin" />
           <EntitySet Name="DetalleDevolucion" EntityType="BDDEFEXTModel.DetalleDevolucion" />
+          <EntitySet Name="DetallePrestamo" EntityType="BDDEFEXTModel.DetallePrestamo" />
           <EntitySet Name="DetalleVenta" EntityType="BDDEFEXTModel.DetalleVenta" />
-          <AssociationSet Name="FK__DetalleDe__idDev__32E0915F" Association="BDDEFEXTModel.FK__DetalleDe__idDev__32E0915F">
+          <EntitySet Name="RolesPersonal" EntityType="BDDEFEXTModel.RolesPersonal" />
+          <AssociationSet Name="FK__ChoferDer__idDer__300424B4" Association="BDDEFEXTModel.FK__ChoferDer__idDer__300424B4">
+            <End Role="DerechoLinea" EntitySet="DerechoLinea" />
+            <End Role="ChoferDerLin" EntitySet="ChoferDerLin" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ChoferDer__Login__2F10007B" Association="BDDEFEXTModel.FK__ChoferDer__Login__2F10007B">
+            <End Role="Personal" EntitySet="Personal" />
+            <End Role="ChoferDerLin" EntitySet="ChoferDerLin" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DetalleDe__idDev__36B12243" Association="BDDEFEXTModel.FK__DetalleDe__idDev__36B12243">
             <End Role="Devolucion" EntitySet="Devolucion" />
             <End Role="DetalleDevolucion" EntitySet="DetalleDevolucion" />
           </AssociationSet>
-          <AssociationSet Name="FK__DetalleDe__idRep__33D4B598" Association="BDDEFEXTModel.FK__DetalleDe__idRep__33D4B598">
+          <AssociationSet Name="FK__DetalleDe__idRep__37A5467C" Association="BDDEFEXTModel.FK__DetalleDe__idRep__37A5467C">
             <End Role="Repuesto" EntitySet="Repuesto" />
             <End Role="DetalleDevolucion" EntitySet="DetalleDevolucion" />
           </AssociationSet>
-          <AssociationSet Name="FK__DetalleVe__idRep__30F848ED" Association="BDDEFEXTModel.FK__DetalleVe__idRep__30F848ED">
+          <AssociationSet Name="FK__DetallePr__idPre__3A81B327" Association="BDDEFEXTModel.FK__DetallePr__idPre__3A81B327">
+            <End Role="Prestamo" EntitySet="Prestamo" />
+            <End Role="DetallePrestamo" EntitySet="DetallePrestamo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DetallePr__idRep__3B75D760" Association="BDDEFEXTModel.FK__DetallePr__idRep__3B75D760">
+            <End Role="Repuesto" EntitySet="Repuesto" />
+            <End Role="DetallePrestamo" EntitySet="DetallePrestamo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DetalleVe__idRep__33D4B598" Association="BDDEFEXTModel.FK__DetalleVe__idRep__33D4B598">
             <End Role="Repuesto" EntitySet="Repuesto" />
             <End Role="DetalleVenta" EntitySet="DetalleVenta" />
           </AssociationSet>
-          <AssociationSet Name="FK__DetalleVe__idVen__300424B4" Association="BDDEFEXTModel.FK__DetalleVe__idVen__300424B4">
+          <AssociationSet Name="FK__DetalleVe__idVen__32E0915F" Association="BDDEFEXTModel.FK__DetalleVe__idVen__32E0915F">
             <End Role="Venta" EntitySet="Venta" />
             <End Role="DetalleVenta" EntitySet="DetalleVenta" />
           </AssociationSet>
-        </EntityContainer>
+          <AssociationSet Name="FK__RolesPers__Login__2B3F6F97" Association="BDDEFEXTModel.FK__RolesPers__Login__2B3F6F97">
+            <End Role="Personal" EntitySet="Personal" />
+            <End Role="RolesPersonal" EntitySet="RolesPersonal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RolesPers__idRol__2C3393D0" Association="BDDEFEXTModel.FK__RolesPers__idRol__2C3393D0">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="RolesPersonal" EntitySet="RolesPersonal" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="ChoferDerLin">
+          <Key>
+            <PropertyRef Name="idChoDer" />
+          </Key>
+          <Property Name="idChoDer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Login" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="idDerechoLinea" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DerechoLinea" Relationship="BDDEFEXTModel.FK__ChoferDer__idDer__300424B4" FromRole="ChoferDerLin" ToRole="DerechoLinea" />
+          <NavigationProperty Name="Personal" Relationship="BDDEFEXTModel.FK__ChoferDer__Login__2F10007B" FromRole="ChoferDerLin" ToRole="Personal" />
+        </EntityType>
         <EntityType Name="DetalleDevolucion">
           <Key>
-            <PropertyRef Name="idDevolucion" />
-            <PropertyRef Name="idRepuesto" />
-            <PropertyRef Name="Cantidad" />
+            <PropertyRef Name="idDetDev" />
           </Key>
+          <Property Name="idDetDev" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="idDevolucion" Type="Int32" Nullable="false" />
           <Property Name="idRepuesto" Type="Int32" Nullable="false" />
           <Property Name="Cantidad" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Devolucion" Relationship="BDDEFEXTModel.FK__DetalleDe__idDev__32E0915F" FromRole="DetalleDevolucion" ToRole="Devolucion" />
-          <NavigationProperty Name="Repuesto" Relationship="BDDEFEXTModel.FK__DetalleDe__idRep__33D4B598" FromRole="DetalleDevolucion" ToRole="Repuesto" />
+          <NavigationProperty Name="Devolucion" Relationship="BDDEFEXTModel.FK__DetalleDe__idDev__36B12243" FromRole="DetalleDevolucion" ToRole="Devolucion" />
+          <NavigationProperty Name="Repuesto" Relationship="BDDEFEXTModel.FK__DetalleDe__idRep__37A5467C" FromRole="DetalleDevolucion" ToRole="Repuesto" />
+        </EntityType>
+        <EntityType Name="DetallePrestamo">
+          <Key>
+            <PropertyRef Name="idDetPre" />
+          </Key>
+          <Property Name="idDetPre" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idPrestamo" Type="Int32" Nullable="false" />
+          <Property Name="idRepuesto" Type="Int32" Nullable="false" />
+          <Property Name="Cantidad" Type="Int32" Nullable="false" />
+          <Property Name="Estado" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Prestamo" Relationship="BDDEFEXTModel.FK__DetallePr__idPre__3A81B327" FromRole="DetallePrestamo" ToRole="Prestamo" />
+          <NavigationProperty Name="Repuesto" Relationship="BDDEFEXTModel.FK__DetallePr__idRep__3B75D760" FromRole="DetallePrestamo" ToRole="Repuesto" />
         </EntityType>
         <EntityType Name="DetalleVenta">
           <Key>
-            <PropertyRef Name="idVenta" />
-            <PropertyRef Name="idRepuesto" />
-            <PropertyRef Name="Cantidad" />
+            <PropertyRef Name="idDetVen" />
           </Key>
+          <Property Name="idDetVen" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="idVenta" Type="Int32" Nullable="false" />
           <Property Name="idRepuesto" Type="Int32" Nullable="false" />
           <Property Name="Cantidad" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Repuesto" Relationship="BDDEFEXTModel.FK__DetalleVe__idRep__30F848ED" FromRole="DetalleVenta" ToRole="Repuesto" />
-          <NavigationProperty Name="Venta" Relationship="BDDEFEXTModel.FK__DetalleVe__idVen__300424B4" FromRole="DetalleVenta" ToRole="Venta" />
+          <NavigationProperty Name="Repuesto" Relationship="BDDEFEXTModel.FK__DetalleVe__idRep__33D4B598" FromRole="DetalleVenta" ToRole="Repuesto" />
+          <NavigationProperty Name="Venta" Relationship="BDDEFEXTModel.FK__DetalleVe__idVen__32E0915F" FromRole="DetalleVenta" ToRole="Venta" />
         </EntityType>
-        <Association Name="FK__DetalleDe__idDev__32E0915F">
+        <EntityType Name="RolesPersonal">
+          <Key>
+            <PropertyRef Name="idRolPer" />
+          </Key>
+          <Property Name="idRolPer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Login" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="idRol" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Personal" Relationship="BDDEFEXTModel.FK__RolesPers__Login__2B3F6F97" FromRole="RolesPersonal" ToRole="Personal" />
+          <NavigationProperty Name="Roles" Relationship="BDDEFEXTModel.FK__RolesPers__idRol__2C3393D0" FromRole="RolesPersonal" ToRole="Roles" />
+        </EntityType>
+        <Association Name="FK__ChoferDer__idDer__300424B4">
+          <End Type="BDDEFEXTModel.DerechoLinea" Role="DerechoLinea" Multiplicity="1" />
+          <End Type="BDDEFEXTModel.ChoferDerLin" Role="ChoferDerLin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DerechoLinea">
+              <PropertyRef Name="idDerechoLinea" />
+            </Principal>
+            <Dependent Role="ChoferDerLin">
+              <PropertyRef Name="idDerechoLinea" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ChoferDer__Login__2F10007B">
+          <End Type="BDDEFEXTModel.Personal" Role="Personal" Multiplicity="1" />
+          <End Type="BDDEFEXTModel.ChoferDerLin" Role="ChoferDerLin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personal">
+              <PropertyRef Name="Login" />
+            </Principal>
+            <Dependent Role="ChoferDerLin">
+              <PropertyRef Name="Login" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DetalleDe__idDev__36B12243">
           <End Type="BDDEFEXTModel.Devolucion" Role="Devolucion" Multiplicity="1" />
           <End Type="BDDEFEXTModel.DetalleDevolucion" Role="DetalleDevolucion" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1034,7 +933,7 @@ advertencia 6002: La tabla o vista 'BDDEFEXT.dbo.RolesPersonal' no tiene definid
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DetalleDe__idRep__33D4B598">
+        <Association Name="FK__DetalleDe__idRep__37A5467C">
           <End Type="BDDEFEXTModel.Repuesto" Role="Repuesto" Multiplicity="1" />
           <End Type="BDDEFEXTModel.DetalleDevolucion" Role="DetalleDevolucion" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1046,7 +945,31 @@ advertencia 6002: La tabla o vista 'BDDEFEXT.dbo.RolesPersonal' no tiene definid
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DetalleVe__idRep__30F848ED">
+        <Association Name="FK__DetallePr__idPre__3A81B327">
+          <End Type="BDDEFEXTModel.Prestamo" Role="Prestamo" Multiplicity="1" />
+          <End Type="BDDEFEXTModel.DetallePrestamo" Role="DetallePrestamo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Prestamo">
+              <PropertyRef Name="idPrestamo" />
+            </Principal>
+            <Dependent Role="DetallePrestamo">
+              <PropertyRef Name="idPrestamo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DetallePr__idRep__3B75D760">
+          <End Type="BDDEFEXTModel.Repuesto" Role="Repuesto" Multiplicity="1" />
+          <End Type="BDDEFEXTModel.DetallePrestamo" Role="DetallePrestamo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Repuesto">
+              <PropertyRef Name="idRepuesto" />
+            </Principal>
+            <Dependent Role="DetallePrestamo">
+              <PropertyRef Name="idRepuesto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DetalleVe__idRep__33D4B598">
           <End Type="BDDEFEXTModel.Repuesto" Role="Repuesto" Multiplicity="1" />
           <End Type="BDDEFEXTModel.DetalleVenta" Role="DetalleVenta" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1058,7 +981,7 @@ advertencia 6002: La tabla o vista 'BDDEFEXT.dbo.RolesPersonal' no tiene definid
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DetalleVe__idVen__300424B4">
+        <Association Name="FK__DetalleVe__idVen__32E0915F">
           <End Type="BDDEFEXTModel.Venta" Role="Venta" Multiplicity="1" />
           <End Type="BDDEFEXTModel.DetalleVenta" Role="DetalleVenta" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1070,7 +993,31 @@ advertencia 6002: La tabla o vista 'BDDEFEXT.dbo.RolesPersonal' no tiene definid
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        <Association Name="FK__RolesPers__Login__2B3F6F97">
+          <End Type="BDDEFEXTModel.Personal" Role="Personal" Multiplicity="1" />
+          <End Type="BDDEFEXTModel.RolesPersonal" Role="RolesPersonal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personal">
+              <PropertyRef Name="Login" />
+            </Principal>
+            <Dependent Role="RolesPersonal">
+              <PropertyRef Name="Login" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RolesPers__idRol__2C3393D0">
+          <End Type="BDDEFEXTModel.Roles" Role="Roles" Multiplicity="1" />
+          <End Type="BDDEFEXTModel.RolesPersonal" Role="RolesPersonal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="idRol" />
+            </Principal>
+            <Dependent Role="RolesPersonal">
+              <PropertyRef Name="idRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -1190,28 +1137,10 @@ advertencia 6002: La tabla o vista 'BDDEFEXT.dbo.RolesPersonal' no tiene definid
           <EntitySetMapping Name="ChoferDerLin">
             <EntityTypeMapping TypeName="BDDEFEXTModel.ChoferDerLin">
               <MappingFragment StoreEntitySet="ChoferDerLin">
-                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
                 <ScalarProperty Name="idDerechoLinea" ColumnName="idDerechoLinea" />
-                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="DetallePrestamo">
-            <EntityTypeMapping TypeName="BDDEFEXTModel.DetallePrestamo">
-              <MappingFragment StoreEntitySet="DetallePrestamo">
-                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
-                <ScalarProperty Name="idPrestamo" ColumnName="idPrestamo" />
-                <ScalarProperty Name="idRepuesto" ColumnName="idRepuesto" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="RolesPersonal">
-            <EntityTypeMapping TypeName="BDDEFEXTModel.RolesPersonal">
-              <MappingFragment StoreEntitySet="RolesPersonal">
                 <ScalarProperty Name="Login" ColumnName="Login" />
-                <ScalarProperty Name="idRol" ColumnName="idRol" />
-                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="idChoDer" ColumnName="idChoDer" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1221,6 +1150,18 @@ advertencia 6002: La tabla o vista 'BDDEFEXT.dbo.RolesPersonal' no tiene definid
                 <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
                 <ScalarProperty Name="idRepuesto" ColumnName="idRepuesto" />
                 <ScalarProperty Name="idDevolucion" ColumnName="idDevolucion" />
+                <ScalarProperty Name="idDetDev" ColumnName="idDetDev" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DetallePrestamo">
+            <EntityTypeMapping TypeName="BDDEFEXTModel.DetallePrestamo">
+              <MappingFragment StoreEntitySet="DetallePrestamo">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="idRepuesto" ColumnName="idRepuesto" />
+                <ScalarProperty Name="idPrestamo" ColumnName="idPrestamo" />
+                <ScalarProperty Name="idDetPre" ColumnName="idDetPre" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1230,6 +1171,17 @@ advertencia 6002: La tabla o vista 'BDDEFEXT.dbo.RolesPersonal' no tiene definid
                 <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
                 <ScalarProperty Name="idRepuesto" ColumnName="idRepuesto" />
                 <ScalarProperty Name="idVenta" ColumnName="idVenta" />
+                <ScalarProperty Name="idDetVen" ColumnName="idDetVen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RolesPersonal">
+            <EntityTypeMapping TypeName="BDDEFEXTModel.RolesPersonal">
+              <MappingFragment StoreEntitySet="RolesPersonal">
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="idRol" ColumnName="idRol" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="idRolPer" ColumnName="idRolPer" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
