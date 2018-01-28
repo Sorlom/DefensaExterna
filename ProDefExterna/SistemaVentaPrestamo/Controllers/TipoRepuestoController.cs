@@ -10,8 +10,10 @@ using SistemaVentaPrestamo.Models;
 
 namespace SistemaVentaPrestamo.Controllers
 {
+    [Authorize(Roles = "R1,R2")]
     public class TipoRepuestoController : Controller
     {
+        
         private BDDEFEXTEntities db = new BDDEFEXTEntities();
 
         // GET: TipoRepuesto

@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace SistemaVentaPrestamo.Controllers
 {
+    [Authorize(Roles = "R1,R2")]
     public class PedidosController : Controller
     {
         BDDEFEXTEntities db = new BDDEFEXTEntities();
@@ -274,6 +275,7 @@ namespace SistemaVentaPrestamo.Controllers
 
                 };
                 pedidoVista.Repuestos.Add(ordenRepuesto);
+                
             }
             else
             {
@@ -297,6 +299,40 @@ namespace SistemaVentaPrestamo.Controllers
             ViewBag.idEncargado = new SelectList(list2, "Login", "nombreCompleto");
             return View("NuevoPedido",pedidoVista);
 
+        }
+        public ActionResult RemoveRepuesto(int id)
+        {
+            var pedidoVista = Session["pedidoVista"] as VistaPedido;           
+            OrdenRepuesto ordenRepuesto = pedidoVista.Repuestos.Find(p => p.idRepuesto == id);
+            pedidoVista.Repuestos.Remove(ordenRepuesto);
+
+            var lista = db.DerechoLinea.ToList();
+            lista.Add(new DerechoLinea { idDerechoLinea = 0, idDueño = "[seleccione un derecho de linea...]" });
+            lista = lista.OrderBy(c => c.idDueño).ToList();
+            ViewBag.idDerechoLinea = new SelectList(lista, "idDerechoLinea", "idDueño");
+
+            var list1 = db.Personal.ToList();
+            list1.Add(new Personal { Login = "", nombreCompleto = "[seleccione un Chofer...]" });
+            list1 = list1.OrderBy(c => c.Login).ToList();
+            ViewBag.idChofer = new SelectList(list1, "Login", "nombreCompleto");
+
+            var list2 = db.Personal.ToList();
+            list2.Add(new Personal { Login = "", nombreCompleto = "[seleccione un Encargado...]" });
+            list2 = list2.OrderBy(c => c.Login).ToList();
+            ViewBag.idEncargado = new SelectList(list2, "Login", "nombreCompleto");
+
+            return View("NuevoPedido", pedidoVista);
+
+        }
+
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
         }
     }
 }

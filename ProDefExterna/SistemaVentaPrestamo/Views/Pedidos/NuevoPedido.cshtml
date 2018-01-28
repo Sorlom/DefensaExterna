@@ -103,8 +103,7 @@
                     @Html.DisplayFor(modelItem => Model.Repuestos[i].Valor)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = Model.Repuestos[i].idRepuesto }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = Model.Repuestos[i].idRepuesto })
+                    @Html.ActionLink("Eliminar", "RemoveRepuesto", new { id = Model.Repuestos[i].idRepuesto })
                 </td>
             </tr>
         }

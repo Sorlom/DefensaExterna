@@ -10,6 +10,7 @@ using SistemaVentaPrestamo.Models;
 
 namespace SistemaVentaPrestamo.Controllers
 {
+    [Authorize(Roles = "R1")]
     public class InternoController : Controller
     {
         private BDDEFEXTEntities db = new BDDEFEXTEntities();

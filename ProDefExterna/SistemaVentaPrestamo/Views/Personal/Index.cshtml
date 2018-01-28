@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<SistemaVentaPrestamo.Models.Personal>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Lista de Personal";
 }
 
-<h2>Index</h2>
+<h2>Lista del Personal</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear Nuevo", "Create")
 </p>
 <table class="table">
     <tr>
@@ -18,7 +18,7 @@
             @Html.DisplayNameFor(model => model.Password)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.nombreCompleto)
+            @Html.DisplayName("Nombre Completo")
         </th>
         <th>
             @Html.DisplayNameFor(model => model.CI)
@@ -53,9 +53,9 @@
             @Html.DisplayFor(modelItem => item.Email)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Login }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Login }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Login })
+            @Html.ActionLink("Editar", "Edit", new { id=item.Login }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.Login }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.Login })
         </td>
     </tr>
 }

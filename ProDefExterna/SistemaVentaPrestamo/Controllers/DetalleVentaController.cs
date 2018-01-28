@@ -10,6 +10,7 @@ using SistemaVentaPrestamo.Models;
 
 namespace SistemaVentaPrestamo.Controllers
 {
+    [Authorize(Roles = "R1,R3")]
     public class DetalleVentaController : Controller
     {
         private BDDEFEXTEntities db = new BDDEFEXTEntities();

@@ -43,15 +43,17 @@
                             </li>                           
                         }
                         if (User.IsInRole("R1") || User.IsInRole("R2"))
-                        {
-                            <li>@Html.ActionLink("Pedido Prestamo", "NuevoPedido", "Pedidos")</li>
-                            <li>@Html.ActionLink("Devolucion", "Index", "Devolucion")</li>
+                        {                         
                             <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                    Inventario
+                                    Encargado Almacen
                                     <span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("Solicitud Prestamo", "NuevoPedido", "Pedidos")</li>
+                                    <li>@Html.ActionLink("Prestamos", "Index", "Prestamos")</li>
+                                    <li>@Html.ActionLink("Detalles Prestamos", "Index", "DetallePrestamo")</li>
+                                    <li>@Html.ActionLink("Devolucion", "Index", "Devolucion")</li>
                                     <li>@Html.ActionLink("Repuestos", "Index", "Repuesto")</li>
                                     <li>@Html.ActionLink("TipoRepuesto", "Index", "TipoRepuesto")</li>
                                 </ul>
