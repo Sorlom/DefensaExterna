@@ -40,5 +40,7 @@ namespace SistemaVentaPrestamo.Models
         public virtual DbSet<DetallePrestamo> DetallePrestamo { get; set; }
         public virtual DbSet<DetalleVenta> DetalleVenta { get; set; }
         public virtual DbSet<RolesPersonal> RolesPersonal { get; set; }
+        public virtual DbSet<SistemaVentaPrestamo.Models.OrdenRepuesto> OrdenRepuesto { get; set; }
+
     }
 }

@@ -130,11 +130,15 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ChoferDerLinController.cs" />
     <Compile Include="Controllers\DerechoLineaController.cs" />
+    <Compile Include="Controllers\DetallePrestamoController.cs" />
+    <Compile Include="Controllers\DetalleVentaController.cs" />
     <Compile Include="Controllers\DevolucionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InternoController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\PedidosController.cs" />
     <Compile Include="Controllers\PersonalController.cs" />
     <Compile Include="Controllers\PrestamosController.cs" />
     <Compile Include="Controllers\RepuestoController.cs" />
@@ -184,6 +188,7 @@
     <Compile Include="Models\Interno.cs">
       <DependentUpon>BDModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\OrdenRepuesto.cs" />
     <Compile Include="Models\Personal.cs">
       <DependentUpon>BDModel.tt</DependentUpon>
     </Compile>
@@ -207,6 +212,7 @@
     </Compile>
     <Compile Include="MyRoleProviders.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\VistaPedido.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -446,6 +452,23 @@
     <Content Include="Views\RolesPersonal\Details.cshtml" />
     <Content Include="Views\RolesPersonal\Edit.cshtml" />
     <Content Include="Views\RolesPersonal\Index.cshtml" />
+    <Content Include="Views\ChoferDerLin\Create.cshtml" />
+    <Content Include="Views\ChoferDerLin\Delete.cshtml" />
+    <Content Include="Views\ChoferDerLin\Details.cshtml" />
+    <Content Include="Views\ChoferDerLin\Edit.cshtml" />
+    <Content Include="Views\ChoferDerLin\Index.cshtml" />
+    <Content Include="Views\DetalleVenta\Create.cshtml" />
+    <Content Include="Views\DetalleVenta\Delete.cshtml" />
+    <Content Include="Views\DetalleVenta\Details.cshtml" />
+    <Content Include="Views\DetalleVenta\Edit.cshtml" />
+    <Content Include="Views\DetalleVenta\Index.cshtml" />
+    <Content Include="Views\DetallePrestamo\Create.cshtml" />
+    <Content Include="Views\DetallePrestamo\Delete.cshtml" />
+    <Content Include="Views\DetallePrestamo\Details.cshtml" />
+    <Content Include="Views\DetallePrestamo\Edit.cshtml" />
+    <Content Include="Views\DetallePrestamo\Index.cshtml" />
+    <Content Include="Views\Pedidos\NuevoPedido.cshtml" />
+    <Content Include="Views\Pedidos\AddRepuesto.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

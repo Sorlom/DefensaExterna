@@ -1,0 +1,42 @@
+﻿@model SistemaVentaPrestamo.Models.ChoferDerLin
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ChoferDerLin</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DerechoLinea.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DerechoLinea.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Personal.Password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Personal.Password)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idChoDer }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

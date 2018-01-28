@@ -1,0 +1,50 @@
+﻿@model SistemaVentaPrestamo.Models.DetallePrestamo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DetallePrestamo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Cantidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cantidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prestamo.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prestamo.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Repuesto.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Repuesto.Nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idDetPre }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

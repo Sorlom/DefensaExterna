@@ -1,0 +1,134 @@
+﻿@model SistemaVentaPrestamo.ViewModels.VistaPedido
+
+@{
+    ViewBag.Title = "NuevoPedido";
+}
+
+<h2>NuevoPedido</h2>
+<h3>@ViewBag.Error</h3>
+<h3>@ViewBag.Message</h3>
+
+@using (Html.BeginForm("NuevoPedido","Pedidos",FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Prestamo</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+       
+        <div class="form-group">
+            @Html.LabelFor(model => model.DerechoLinea.idDerechoLinea, "ID DerechoLinea", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("idDerechoLinea", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.DerechoLinea.idDerechoLinea, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Chofer.Login, "Login Chofer", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("idChofer", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Chofer.Login, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Encargado.Login, "Login Encargado", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("idEncargado", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Encargado.Login, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.fechaInicio, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.fechaInicio, new { htmlAttributes = new { @class = "datepicker" } })
+                @Html.ValidationMessageFor(model => model.fechaInicio, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.fechaLimite, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.fechaLimite, new { htmlAttributes = new { @class = "datepicker" } })
+                @Html.ValidationMessageFor(model => model.fechaLimite, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+        @Html.ActionLink("Añadir Repuesto", "AddRepuesto", new { }, new { @class = "btn btn-primary" })
+        <input type="submit" value="Guardar Pedido" id="NuevoPedido" class="btn btn-success" />
+
+    </div>
+}
+<h2>Detalles Pedido</h2>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.OrdenRepuesto.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrdenRepuesto.Precio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrdenRepuesto.MontoCantidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrdenRepuesto.Valor)
+            </th>
+            <th></th>
+        </tr>
+
+        @for (int i = 0; i < Model.Repuestos.Count; i++)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.Repuestos[i].Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.Repuestos[i].Precio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.Repuestos[i].MontoCantidad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.Repuestos[i].Valor)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.Repuestos[i].idRepuesto }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = Model.Repuestos[i].idRepuesto })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+
+    <link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+
+    @section scripts{
+        <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+
+        <script>
+        $(function () {
+            $(".datepicker").datepicker({
+                dateFormat: "dd/mm/yy",
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "-10:+10",
+                showOn: "both",
+                buttonText : "Fecha"
+
+
+            });
+        })
+        </script>
+    }

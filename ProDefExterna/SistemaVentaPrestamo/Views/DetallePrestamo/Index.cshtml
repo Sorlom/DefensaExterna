@@ -1,0 +1,51 @@
+﻿@model IEnumerable<SistemaVentaPrestamo.Models.DetallePrestamo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Cantidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Estado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prestamo.Descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Repuesto.Nombre)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cantidad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Estado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Prestamo.Descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Repuesto.Nombre)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idDetPre }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idDetPre }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idDetPre })
+        </td>
+    </tr>
+}
+
+</table>

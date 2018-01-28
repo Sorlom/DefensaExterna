@@ -38,18 +38,28 @@
                                     <li>@Html.ActionLink("Asignar Roles", "Index", "RolesPersonal")</li>
                                     <li>@Html.ActionLink("Interno", "Index", "Interno")</li>
                                     <li>@Html.ActionLink("Derecho Linea", "Index", "DerechoLinea")</li>
+                                    <li>@Html.ActionLink("Choferes", "Index", "ChoferDerLin")</li>
                                 </ul>
                             </li>                           
                         }
                         if (User.IsInRole("R1") || User.IsInRole("R2"))
                         {
-                            <li>@Html.ActionLink("Prestamos", "Index", "Prestamos")</li>
-                            <li>@Html.ActionLink("Devolucion", "Index", "Poliza")</li>
-                            <li>@Html.ActionLink("Inventario", "Index", "Siniestro")</li>
+                            <li>@Html.ActionLink("Pedido Prestamo", "NuevoPedido", "Pedidos")</li>
+                            <li>@Html.ActionLink("Devolucion", "Index", "Devolucion")</li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    Inventario
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("Repuestos", "Index", "Repuesto")</li>
+                                    <li>@Html.ActionLink("TipoRepuesto", "Index", "TipoRepuesto")</li>
+                                </ul>
+                            </li>
                         }
                         if (User.IsInRole("R1") || User.IsInRole("R3"))
                         {
-                            <li>@Html.ActionLink("Venta", "Index", "DetalleGasto")</li>
+                            <li>@Html.ActionLink("Venta", "Index", "Venta")</li>
                         }
                         if (User.IsInRole("R1") || User.IsInRole("R4") || User.IsInRole("R3") || User.IsInRole("R2"))
                         {

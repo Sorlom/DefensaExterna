@@ -39,12 +39,12 @@ namespace SistemaVentaPrestamo.Controllers
         // GET: Prestamos/Create
         public ActionResult Create()
         {
-            ViewBag.idDerechoLinea = new SelectList(db.DerechoLinea, "idDerechoLinea", "Descripcion");
-            ViewBag.idChofer = new SelectList(db.Personal, "Login", "Password");
-            ViewBag.idEncargado = new SelectList(db.Personal, "Login", "Password");
+            ViewBag.idDerechoLinea = new SelectList(db.DerechoLinea, "idDerechoLinea", "idDerechoLinea");
+            ViewBag.idChofer = new SelectList(db.Personal, "Login", "Login");
+            ViewBag.idEncargado = new SelectList(db.Personal, "Login", "Login");
             return View();
-        }
 
+        }
         // POST: Prestamos/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
