@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="BDDEFEXTDataSet" targetNamespace="http://tempuri.org/BDDEFEXTDataSet.xsd" xmlns:mstns="http://tempuri.org/BDDEFEXTDataSet.xsd" xmlns="http://tempuri.org/BDDEFEXTDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="BDDEFEXTConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BDDEFEXTConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.BDDEFEXTConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="View_Report1TableAdapter" GeneratorDataComponentClassName="View_Report1TableAdapter" Name="View_Report1" UserDataComponentName="View_Report1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="BDDEFEXTConnectionString (Web.config)" DbObjectName="BDDEFEXT.dbo.View_Report1" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Nombre, CantidadRepuesto FROM dbo.View_Report1</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Nombre" DataSetColumn="Nombre" />
+              <Mapping SourceColumn="CantidadRepuesto" DataSetColumn="CantidadRepuesto" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="View_Report2TableAdapter" GeneratorDataComponentClassName="View_Report2TableAdapter" Name="View_Report2" UserDataComponentName="View_Report2TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="BDDEFEXTConnectionString (Web.config)" DbObjectName="BDDEFEXT.dbo.View_Report2" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ChoferInterno, idPrestamo, Descripcion, fechaLimite FROM dbo.View_Report2</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ChoferInterno" DataSetColumn="ChoferInterno" />
+              <Mapping SourceColumn="idPrestamo" DataSetColumn="idPrestamo" />
+              <Mapping SourceColumn="Descripcion" DataSetColumn="Descripcion" />
+              <Mapping SourceColumn="fechaLimite" DataSetColumn="fechaLimite" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="View_Report3TableAdapter" GeneratorDataComponentClassName="View_Report3TableAdapter" Name="View_Report3" UserDataComponentName="View_Report3TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="BDDEFEXTConnectionString (Web.config)" DbObjectName="BDDEFEXT.dbo.View_Report3" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Nombre, CantidadRepuesto, MontoTotal FROM dbo.View_Report3</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Nombre" DataSetColumn="Nombre" />
+              <Mapping SourceColumn="CantidadRepuesto" DataSetColumn="CantidadRepuesto" />
+              <Mapping SourceColumn="MontoTotal" DataSetColumn="MontoTotal" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="View_Report4TableAdapter" GeneratorDataComponentClassName="View_Report4TableAdapter" Name="View_Report4" UserDataComponentName="View_Report4TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="BDDEFEXTConnectionString (Web.config)" DbObjectName="BDDEFEXT.dbo.View_Report4" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Stock, idTipoRepuesto, Nombre FROM dbo.View_Report4</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Stock" DataSetColumn="Stock" />
+              <Mapping SourceColumn="idTipoRepuesto" DataSetColumn="idTipoRepuesto" />
+              <Mapping SourceColumn="Nombre" DataSetColumn="Nombre" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="BDDEFEXTDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="BDDEFEXTDataSet" msprop:Generator_UserDSName="BDDEFEXTDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="View_Report1" msprop:Generator_TableClassName="View_Report1DataTable" msprop:Generator_TableVarName="tableView_Report1" msprop:Generator_TablePropName="View_Report1" msprop:Generator_RowDeletingName="View_Report1RowDeleting" msprop:Generator_RowChangingName="View_Report1RowChanging" msprop:Generator_RowEvHandlerName="View_Report1RowChangeEventHandler" msprop:Generator_RowDeletedName="View_Report1RowDeleted" msprop:Generator_UserTableName="View_Report1" msprop:Generator_RowChangedName="View_Report1RowChanged" msprop:Generator_RowEvArgName="View_Report1RowChangeEvent" msprop:Generator_RowClassName="View_Report1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Nombre" msprop:Generator_ColumnVarNameInTable="columnNombre" msprop:Generator_ColumnPropNameInRow="Nombre" msprop:Generator_ColumnPropNameInTable="NombreColumn" msprop:Generator_UserColumnName="Nombre">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CantidadRepuesto" msprop:Generator_ColumnVarNameInTable="columnCantidadRepuesto" msprop:Generator_ColumnPropNameInRow="CantidadRepuesto" msprop:Generator_ColumnPropNameInTable="CantidadRepuestoColumn" msprop:Generator_UserColumnName="CantidadRepuesto" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="View_Report2" msprop:Generator_TableClassName="View_Report2DataTable" msprop:Generator_TableVarName="tableView_Report2" msprop:Generator_TablePropName="View_Report2" msprop:Generator_RowDeletingName="View_Report2RowDeleting" msprop:Generator_RowChangingName="View_Report2RowChanging" msprop:Generator_RowEvHandlerName="View_Report2RowChangeEventHandler" msprop:Generator_RowDeletedName="View_Report2RowDeleted" msprop:Generator_UserTableName="View_Report2" msprop:Generator_RowChangedName="View_Report2RowChanged" msprop:Generator_RowEvArgName="View_Report2RowChangeEvent" msprop:Generator_RowClassName="View_Report2Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ChoferInterno" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnChoferInterno" msprop:Generator_ColumnPropNameInRow="ChoferInterno" msprop:Generator_ColumnPropNameInTable="ChoferInternoColumn" msprop:Generator_UserColumnName="ChoferInterno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="74" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="idPrestamo" msprop:Generator_ColumnVarNameInTable="columnidPrestamo" msprop:Generator_ColumnPropNameInRow="idPrestamo" msprop:Generator_ColumnPropNameInTable="idPrestamoColumn" msprop:Generator_UserColumnName="idPrestamo" type="xs:int" />
+              <xs:element name="Descripcion" msprop:Generator_ColumnVarNameInTable="columnDescripcion" msprop:Generator_ColumnPropNameInRow="Descripcion" msprop:Generator_ColumnPropNameInTable="DescripcionColumn" msprop:Generator_UserColumnName="Descripcion">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fechaLimite" msprop:Generator_ColumnVarNameInTable="columnfechaLimite" msprop:Generator_ColumnPropNameInRow="fechaLimite" msprop:Generator_ColumnPropNameInTable="fechaLimiteColumn" msprop:Generator_UserColumnName="fechaLimite" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="View_Report3" msprop:Generator_TableClassName="View_Report3DataTable" msprop:Generator_TableVarName="tableView_Report3" msprop:Generator_TablePropName="View_Report3" msprop:Generator_RowDeletingName="View_Report3RowDeleting" msprop:Generator_RowChangingName="View_Report3RowChanging" msprop:Generator_RowEvHandlerName="View_Report3RowChangeEventHandler" msprop:Generator_RowDeletedName="View_Report3RowDeleted" msprop:Generator_UserTableName="View_Report3" msprop:Generator_RowChangedName="View_Report3RowChanged" msprop:Generator_RowEvArgName="View_Report3RowChangeEvent" msprop:Generator_RowClassName="View_Report3Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Nombre" msprop:Generator_ColumnVarNameInTable="columnNombre" msprop:Generator_ColumnPropNameInRow="Nombre" msprop:Generator_ColumnPropNameInTable="NombreColumn" msprop:Generator_UserColumnName="Nombre">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CantidadRepuesto" msprop:Generator_ColumnVarNameInTable="columnCantidadRepuesto" msprop:Generator_ColumnPropNameInRow="CantidadRepuesto" msprop:Generator_ColumnPropNameInTable="CantidadRepuestoColumn" msprop:Generator_UserColumnName="CantidadRepuesto" type="xs:int" minOccurs="0" />
+              <xs:element name="MontoTotal" msprop:Generator_ColumnVarNameInTable="columnMontoTotal" msprop:Generator_ColumnPropNameInRow="MontoTotal" msprop:Generator_ColumnPropNameInTable="MontoTotalColumn" msprop:Generator_UserColumnName="MontoTotal" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="View_Report4" msprop:Generator_TableClassName="View_Report4DataTable" msprop:Generator_TableVarName="tableView_Report4" msprop:Generator_TablePropName="View_Report4" msprop:Generator_RowDeletingName="View_Report4RowDeleting" msprop:Generator_RowChangingName="View_Report4RowChanging" msprop:Generator_RowEvHandlerName="View_Report4RowChangeEventHandler" msprop:Generator_RowDeletedName="View_Report4RowDeleted" msprop:Generator_UserTableName="View_Report4" msprop:Generator_RowChangedName="View_Report4RowChanged" msprop:Generator_RowEvArgName="View_Report4RowChangeEvent" msprop:Generator_RowClassName="View_Report4Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Stock" msprop:Generator_ColumnVarNameInTable="columnStock" msprop:Generator_ColumnPropNameInRow="Stock" msprop:Generator_ColumnPropNameInTable="StockColumn" msprop:Generator_UserColumnName="Stock" type="xs:int" minOccurs="0" />
+              <xs:element name="idTipoRepuesto" msprop:Generator_ColumnVarNameInTable="columnidTipoRepuesto" msprop:Generator_ColumnPropNameInRow="idTipoRepuesto" msprop:Generator_ColumnPropNameInTable="idTipoRepuestoColumn" msprop:Generator_UserColumnName="idTipoRepuesto" type="xs:int" />
+              <xs:element name="Nombre" msprop:Generator_ColumnVarNameInTable="columnNombre" msprop:Generator_ColumnPropNameInRow="Nombre" msprop:Generator_ColumnPropNameInTable="NombreColumn" msprop:Generator_UserColumnName="Nombre">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:View_Report2" />
+      <xs:field xpath="mstns:idPrestamo" />
+    </xs:unique>
+    <xs:unique name="View_Report4_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:View_Report4" />
+      <xs:field xpath="mstns:idTipoRepuesto" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

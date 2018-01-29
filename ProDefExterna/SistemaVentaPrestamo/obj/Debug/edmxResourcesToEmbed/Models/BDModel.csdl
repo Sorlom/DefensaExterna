@@ -347,6 +347,12 @@
       <End Role="Roles" EntitySet="Roles" />
       <End Role="RolesPersonal" EntitySet="RolesPersonal" />
     </AssociationSet>
+    <EntitySet Name="View_Report1" EntityType="BDDEFEXTModel.View_Report1" />
+    <EntitySet Name="View_Report2" EntityType="BDDEFEXTModel.View_Report2" />
+    <EntitySet Name="View_Report3" EntityType="BDDEFEXTModel.View_Report3" />
+    <EntitySet Name="View_Report4" EntityType="BDDEFEXTModel.View_Report4" />
+    <FunctionImport Name="SPBackupDiferencial" />
+    <FunctionImport Name="SPBackupTotal" />
   </EntityContainer>
   <EntityType Name="ChoferDerLin">
     <Key>
@@ -524,4 +530,40 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="View_Report1">
+    <Key>
+      <PropertyRef Name="Nombre" />
+    </Key>
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CantidadRepuesto" Type="Int32" />
+  </EntityType>
+  <EntityType Name="View_Report2">
+    <Key>
+      <PropertyRef Name="ChoferInterno" />
+      <PropertyRef Name="idPrestamo" />
+      <PropertyRef Name="Descripcion" />
+      <PropertyRef Name="fechaLimite" />
+    </Key>
+    <Property Name="ChoferInterno" Type="String" Nullable="false" MaxLength="74" FixedLength="false" Unicode="false" />
+    <Property Name="idPrestamo" Type="Int32" Nullable="false" />
+    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="fechaLimite" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="View_Report3">
+    <Key>
+      <PropertyRef Name="Nombre" />
+    </Key>
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CantidadRepuesto" Type="Int32" />
+    <Property Name="MontoTotal" Type="Decimal" Precision="38" Scale="2" />
+  </EntityType>
+  <EntityType Name="View_Report4">
+    <Key>
+      <PropertyRef Name="idTipoRepuesto" />
+      <PropertyRef Name="Nombre" />
+    </Key>
+    <Property Name="Stock" Type="Int32" />
+    <Property Name="idTipoRepuesto" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
 </Schema>

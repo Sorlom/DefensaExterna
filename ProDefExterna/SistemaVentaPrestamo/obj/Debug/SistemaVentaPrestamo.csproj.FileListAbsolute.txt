@@ -17,6 +17,7 @@ D:\Defensa Externa - Examen de Grado\DefensaExterna\ProDefExterna\SistemaVentaPr
 D:\Defensa Externa - Examen de Grado\DefensaExterna\ProDefExterna\SistemaVentaPrestamo\bin\EntityFramework.dll
 D:\Defensa Externa - Examen de Grado\DefensaExterna\ProDefExterna\SistemaVentaPrestamo\bin\EntityFramework.SqlServer.dll
 D:\Defensa Externa - Examen de Grado\DefensaExterna\ProDefExterna\SistemaVentaPrestamo\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Defensa Externa - Examen de Grado\DefensaExterna\ProDefExterna\SistemaVentaPrestamo\bin\Microsoft.ReportViewer.WebForms.dll
 D:\Defensa Externa - Examen de Grado\DefensaExterna\ProDefExterna\SistemaVentaPrestamo\bin\Microsoft.Web.Infrastructure.dll
 D:\Defensa Externa - Examen de Grado\DefensaExterna\ProDefExterna\SistemaVentaPrestamo\bin\Newtonsoft.Json.dll
 D:\Defensa Externa - Examen de Grado\DefensaExterna\ProDefExterna\SistemaVentaPrestamo\bin\System.Web.Helpers.dll
@@ -27,6 +28,7 @@ D:\Defensa Externa - Examen de Grado\DefensaExterna\ProDefExterna\SistemaVentaPr
 D:\Defensa Externa - Examen de Grado\DefensaExterna\ProDefExterna\SistemaVentaPrestamo\bin\System.Web.WebPages.dll
 D:\Defensa Externa - Examen de Grado\DefensaExterna\ProDefExterna\SistemaVentaPrestamo\bin\System.Web.WebPages.Razor.dll
 D:\Defensa Externa - Examen de Grado\DefensaExterna\ProDefExterna\SistemaVentaPrestamo\bin\WebGrease.dll
+D:\Defensa Externa - Examen de Grado\DefensaExterna\ProDefExterna\SistemaVentaPrestamo\bin\Microsoft.SqlServer.Types.dll
 D:\Defensa Externa - Examen de Grado\DefensaExterna\ProDefExterna\SistemaVentaPrestamo\bin\EntityFramework.xml
 D:\Defensa Externa - Examen de Grado\DefensaExterna\ProDefExterna\SistemaVentaPrestamo\bin\EntityFramework.SqlServer.xml
 D:\Defensa Externa - Examen de Grado\DefensaExterna\ProDefExterna\SistemaVentaPrestamo\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
@@ -39,6 +41,7 @@ D:\Defensa Externa - Examen de Grado\DefensaExterna\ProDefExterna\SistemaVentaPr
 D:\Defensa Externa - Examen de Grado\DefensaExterna\ProDefExterna\SistemaVentaPrestamo\bin\System.Web.WebPages.Razor.xml
 D:\Defensa Externa - Examen de Grado\DefensaExterna\ProDefExterna\SistemaVentaPrestamo\bin\Antlr3.Runtime.pdb
 D:\Defensa Externa - Examen de Grado\DefensaExterna\ProDefExterna\SistemaVentaPrestamo\bin\Newtonsoft.Json.xml
+D:\Defensa Externa - Examen de Grado\DefensaExterna\ProDefExterna\SistemaVentaPrestamo\bin\es\Microsoft.ReportViewer.WebForms.resources.dll
 D:\Defensa Externa - Examen de Grado\DefensaExterna\ProDefExterna\SistemaVentaPrestamo\bin\es\System.Web.Helpers.resources.dll
 D:\Defensa Externa - Examen de Grado\DefensaExterna\ProDefExterna\SistemaVentaPrestamo\bin\es\System.Web.Mvc.resources.dll
 D:\Defensa Externa - Examen de Grado\DefensaExterna\ProDefExterna\SistemaVentaPrestamo\bin\es\System.Web.Optimization.resources.dll
@@ -46,6 +49,18 @@ D:\Defensa Externa - Examen de Grado\DefensaExterna\ProDefExterna\SistemaVentaPr
 D:\Defensa Externa - Examen de Grado\DefensaExterna\ProDefExterna\SistemaVentaPrestamo\bin\es\System.Web.WebPages.resources.dll
 D:\Defensa Externa - Examen de Grado\DefensaExterna\ProDefExterna\SistemaVentaPrestamo\bin\es\System.Web.WebPages.Deployment.resources.dll
 D:\Defensa Externa - Examen de Grado\DefensaExterna\ProDefExterna\SistemaVentaPrestamo\bin\es\System.Web.WebPages.Razor.resources.dll
+D:\Defensa Externa - Examen de Grado\DefensaExterna\ProDefExterna\SistemaVentaPrestamo\bin\de\Microsoft.SqlServer.Types.resources.dll
+D:\Defensa Externa - Examen de Grado\DefensaExterna\ProDefExterna\SistemaVentaPrestamo\bin\es\Microsoft.SqlServer.Types.resources.dll
+D:\Defensa Externa - Examen de Grado\DefensaExterna\ProDefExterna\SistemaVentaPrestamo\bin\fr\Microsoft.SqlServer.Types.resources.dll
+D:\Defensa Externa - Examen de Grado\DefensaExterna\ProDefExterna\SistemaVentaPrestamo\bin\it\Microsoft.SqlServer.Types.resources.dll
+D:\Defensa Externa - Examen de Grado\DefensaExterna\ProDefExterna\SistemaVentaPrestamo\bin\ja\Microsoft.SqlServer.Types.resources.dll
+D:\Defensa Externa - Examen de Grado\DefensaExterna\ProDefExterna\SistemaVentaPrestamo\bin\ko\Microsoft.SqlServer.Types.resources.dll
+D:\Defensa Externa - Examen de Grado\DefensaExterna\ProDefExterna\SistemaVentaPrestamo\bin\pt\Microsoft.SqlServer.Types.resources.dll
+D:\Defensa Externa - Examen de Grado\DefensaExterna\ProDefExterna\SistemaVentaPrestamo\bin\ru\Microsoft.SqlServer.Types.resources.dll
+D:\Defensa Externa - Examen de Grado\DefensaExterna\ProDefExterna\SistemaVentaPrestamo\bin\zh-Hans\Microsoft.SqlServer.Types.resources.dll
+D:\Defensa Externa - Examen de Grado\DefensaExterna\ProDefExterna\SistemaVentaPrestamo\bin\zh-Hant\Microsoft.SqlServer.Types.resources.dll
 D:\Defensa Externa - Examen de Grado\DefensaExterna\ProDefExterna\SistemaVentaPrestamo\obj\Debug\SistemaVentaPrestamo.dll
 D:\Defensa Externa - Examen de Grado\DefensaExterna\ProDefExterna\SistemaVentaPrestamo\obj\Debug\SistemaVentaPrestamo.pdb
 D:\Defensa Externa - Examen de Grado\DefensaExterna\ProDefExterna\SistemaVentaPrestamo\obj\Debug\SistemaVentaPrestamo.csprojResolveAssemblyReference.cache
+D:\Defensa Externa - Examen de Grado\DefensaExterna\ProDefExterna\SistemaVentaPrestamo\obj\Debug\RdlCompile.cache
+D:\Defensa Externa - Examen de Grado\DefensaExterna\ProDefExterna\SistemaVentaPrestamo\obj\Debug\RdlCompile.compiled

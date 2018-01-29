@@ -3,6 +3,7 @@ using SistemaVentaPrestamo.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Transactions;
 using System.Web;
 using System.Web.Mvc;
 
@@ -99,6 +100,7 @@ namespace SistemaVentaPrestamo.Controllers
             int i = 0;
 
             using (var transaction = db.Database.BeginTransaction())
+            //using (TransactionScope scope = new TransactionScope())
             {
                 try
                 {
@@ -166,17 +168,20 @@ namespace SistemaVentaPrestamo.Controllers
                             //i++;
                             //if (i > 2)
                             //{
-                            //    int a = 0;
+                            //  int a = 0;
                             //    i /= a;
                             //}
                         }
                     }
                     transaction.Commit();
+                    //scope.Complete();
+                    
                 }
                 catch (Exception ex)
                 {
-                    transaction.Rollback();
                     ViewBag.Error = "Error: " + ex.Message;
+                    transaction.Rollback();
+                    
 
                     var listt1 = db.DerechoLinea.ToList();
                     listt1.Add(new DerechoLinea { idDerechoLinea = 0, idDueño = "[seleccione un derecho de linea...]" });
@@ -192,6 +197,7 @@ namespace SistemaVentaPrestamo.Controllers
                     listt3.Add(new Personal { Login = "", nombreCompleto = "[seleccione un Encargado...]" });
                     listt3 = listt3.OrderBy(c => c.Login).ToList();
                     ViewBag.idEncargado = new SelectList(listt3, "Login", "nombreCompleto");
+
 
                     return View(pedidoVista);
                 }

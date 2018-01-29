@@ -163,5 +163,43 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="View_Report1">
+      <EntityTypeMapping TypeName="BDDEFEXTModel.View_Report1">
+        <MappingFragment StoreEntitySet="View_Report1">
+          <ScalarProperty Name="CantidadRepuesto" ColumnName="CantidadRepuesto" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="View_Report2">
+      <EntityTypeMapping TypeName="BDDEFEXTModel.View_Report2">
+        <MappingFragment StoreEntitySet="View_Report2">
+          <ScalarProperty Name="fechaLimite" ColumnName="fechaLimite" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="idPrestamo" ColumnName="idPrestamo" />
+          <ScalarProperty Name="ChoferInterno" ColumnName="ChoferInterno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="View_Report3">
+      <EntityTypeMapping TypeName="BDDEFEXTModel.View_Report3">
+        <MappingFragment StoreEntitySet="View_Report3">
+          <ScalarProperty Name="MontoTotal" ColumnName="MontoTotal" />
+          <ScalarProperty Name="CantidadRepuesto" ColumnName="CantidadRepuesto" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="View_Report4">
+      <EntityTypeMapping TypeName="BDDEFEXTModel.View_Report4">
+        <MappingFragment StoreEntitySet="View_Report4">
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="idTipoRepuesto" ColumnName="idTipoRepuesto" />
+          <ScalarProperty Name="Stock" ColumnName="Stock" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SPBackupDiferencial" FunctionName="BDDEFEXTModel.Store.SPBackupDiferencial" />
+    <FunctionImportMapping FunctionImportName="SPBackupTotal" FunctionName="BDDEFEXTModel.Store.SPBackupTotal" />
   </EntityContainerMapping>
 </Mapping>

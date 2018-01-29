@@ -163,8 +163,6 @@ Insert into Interno values('sdawa65456wesf878','3254fvs','Mitsubishi',2)
 Insert into Interno values('gdfre545857reqsgg','3254gds','Mitsubishi',3)
 Insert into Interno values('5642123rwsf4wafer','3241abs','Coaster',4)
 
-insert into ChoferDerLin values('Chofer1',1,'')
-
 Insert into TipoRepuesto values ('Motor','Repuestos del Motor')
 Insert into TipoRepuesto values ('Freno','Repuestos de los Frenos')
 Insert into TipoRepuesto values ('Direccion','Repuestos de la Direccion')
@@ -193,7 +191,227 @@ insert into ChoferDerLin values('Chofer3',2,'Chofer del interno por Derecho de l
 insert into ChoferDerLin values('Chofer4',4,'Chofer del interno por Derecho de linea')
 insert into ChoferDerLin values('Chofer3',3,'Chofer del interno por Derecho de linea')
 insert into ChoferDerLin values('Chofer2',3,'Chofer del interno por Derecho de linea')
+----------------------Triggers-----------------------------------
+Create trigger tg_Inventario_Repuesto on DetallePrestamo for insert
+as
+begin
+declare @CantidadActual as int
+declare @CantidadOp as int
+declare @CantidadTotal as int
+declare @ID as int
+set @ID = (select idRepuesto from inserted)
+set @CantidadActual = (select Cantidad from Repuesto where idRepuesto = @ID)
+set @CantidadOp = (select Cantidad from inserted)
+set @CantidadTotal = @CantidadActual-@CantidadOp
 
+		
+update Repuesto set Cantidad = @CantidadTotal where idRepuesto = @ID
+
+end
+Create trigger tg_Inventario_Repuesto_up on DetallePrestamo for update
+as
+begin
+declare @CantidadPAct as int
+declare @CantidadDPAct as int
+declare @CantidadMod as int
+declare @CantidadRes as int
+declare @CantidadFinal as int
+declare @IDI as int
+declare @IDD as int
+
+set @IDI = (select idRepuesto from inserted)
+
+set @CantidadPAct = (select Cantidad from Repuesto where idRepuesto = @IDI)
+set @CantidadDPAct = (select Cantidad from deleted)
+set @CantidadMod = (select Cantidad from inserted)
+set @CantidadRes = @CantidadDPAct-@CantidadMod
+set @CantidadFinal = @CantidadPAct+@CantidadRes
+
+		
+update Repuesto set Cantidad = @CantidadFinal where idRepuesto = @IDI
+
+end
+Create trigger tg_Inventario_Repuesto_Del on DetallePrestamo for delete
+as
+begin
+declare @CantidadActual as int
+declare @CantidadOp as int
+declare @CantidadTotal as int
+declare @ID as int
+set @ID = (select idRepuesto from deleted)
+set @CantidadActual = (select Cantidad from Repuesto where idRepuesto = @ID)
+set @CantidadOp = (select Cantidad from deleted)
+set @CantidadTotal = @CantidadActual+@CantidadOp
+
+		
+update Repuesto set Cantidad = @CantidadTotal where idRepuesto = @ID
+
+end
+-------------------------Bitacora Triggers-------------------------------------------------
+create trigger tg_alta_DetPrestamo on DetallePrestamo for insert
+as
+declare @CodRep as int
+declare @CodPre as int
+set @CodRep = (select idRepuesto from inserted)
+set @CodPre = (select idPrestamo from inserted)
+insert into Bitacora values('Se guardo Detalle del Prestamo con id : '+convert(char(10),@CodPre)+', con id del Repuesto: '+convert(char(10),@CodRep),GETDATE(),HOST_NAME(),SYSTEM_USER,APP_NAME())
+go
+create trigger tg_baja_DetPrestamo on DetallePrestamo for delete
+as
+declare @CodRep as int
+declare @CodPre as int
+set @CodRep = (select idRepuesto from deleted)
+set @CodPre = (select idPrestamo from deleted)
+insert into Bitacora values('Se elimino Detalle de del Prestamo con id : '+convert(char(10),@CodPre)+', con id del Repuesto: '+convert(char(10),@CodRep),GETDATE(),HOST_NAME(),SYSTEM_USER,APP_NAME())
+go
+create trigger tg_Mod_DetPrestamo on DetallePrestamo for update
+as
+declare @CodRep as int
+declare @CodPre as int
+set @CodRep = (select idRepuesto from deleted)
+set @CodPre = (select idPrestamo from deleted)
+insert into Bitacora values('Se modifico Detalle de del Prestamo con id : '+convert(char(10),@CodPre)+', con id del Repuesto: '+convert(char(10),@CodRep),GETDATE(),HOST_NAME(),SYSTEM_USER,APP_NAME())
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+create trigger tg_alta_Prestamo on Prestamo for insert
+as
+declare @CodPre as int
+set @CodPre = (select idPrestamo from inserted)
+insert into Bitacora values('Se guardo Prestamo con id : '+convert(char(10),@CodPre),GETDATE(),HOST_NAME(),SYSTEM_USER,APP_NAME())
+go
+create trigger tg_baja_Prestamo on Prestamo for delete
+as
+declare @CodPre as int
+set @CodPre = (select idPrestamo from deleted)
+insert into Bitacora values('Se elimino el Prestamo con id : '+convert(char(10),@CodPre),GETDATE(),HOST_NAME(),SYSTEM_USER,APP_NAME())
+go
+create trigger tg_Mod_Prestamo on Prestamo for update
+as
+declare @CodPre as int
+set @CodPre = (select idPrestamo from deleted)
+insert into Bitacora values('Se modifico el Prestamo con id : '+convert(char(10),@CodPre),GETDATE(),HOST_NAME(),SYSTEM_USER,APP_NAME())
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+create trigger tg_alta_Repuesto on Repuesto for insert
+as
+declare @CodRep as int
+set @CodRep = (select idRepuesto from inserted)
+insert into Bitacora values('Se guardo Repuesto con id: '+convert(char(10),@CodRep),GETDATE(),HOST_NAME(),SYSTEM_USER,APP_NAME())
+go
+create trigger tg_baja_Repuesto on Repuesto for delete
+as
+declare @CodRep as int
+set @CodRep = (select idRepuesto from deleted)
+insert into Bitacora values('Se elimino Repuesto con id: '+convert(char(10),@CodRep),GETDATE(),HOST_NAME(),SYSTEM_USER,APP_NAME())
+go
+create trigger tg_Mod_Repuesto on Repuesto for update
+as
+declare @CodRep as int
+set @CodRep = (select idRepuesto from deleted)
+insert into Bitacora values('Se modifico Repuesto con id: '+convert(char(10),@CodRep),GETDATE(),HOST_NAME(),SYSTEM_USER,APP_NAME())
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+create trigger tg_alta_TipoRepuesto on TipoRepuesto for insert
+as
+declare @CodRep as int
+set @CodRep = (select idTipoRepuesto from inserted)
+insert into Bitacora values('Se guardo TipoRepuesto con id : '+convert(char(10),@CodRep),GETDATE(),HOST_NAME(),SYSTEM_USER,APP_NAME())
+go
+create trigger tg_baja_TipoRepuesto on TipoRepuesto for delete
+as
+declare @CodRep as int
+set @CodRep = (select idTipoRepuesto from deleted)
+insert into Bitacora values('Se elimino TipoRepuesto con id : '+convert(char(10),@CodRep),GETDATE(),HOST_NAME(),SYSTEM_USER,APP_NAME())
+go
+create trigger tg_Mod_TipoRepuesto on TipoRepuesto for update
+as
+declare @CodRep as int
+set @CodRep = (select idTipoRepuesto from deleted)
+insert into Bitacora values('Se modifico TipoRepuesto con id : '+convert(char(10),@CodRep),GETDATE(),HOST_NAME(),SYSTEM_USER,APP_NAME())
+---------------------------------Comandos----------------------------------------------------
+select * from Repuesto
+select * from DetallePrestamo
+select * from Prestamo
 select * from RolesPersonal
 select * from Personal
-select * from Repuesto
+select * from Bitacora
+
+--------------------------------------View Reporte 1---------------------------------------------------------
+Create View View_Report1
+as
+select tr.Nombre, SUM(dp.Cantidad)as CantidadRepuesto 
+from DetallePrestamo dp 
+		inner join Repuesto r on dp.idRepuesto = r.idRepuesto
+		inner join TipoRepuesto tr on r.idTipoRepuesto = tr.idTipoRepuesto
+		inner join Prestamo p on p.idPrestamo = dp.idPrestamo
+		Group by tr.Nombre
+------------------------------------------Prueba Reporte 1----------------------------------
+select tr.Nombre, SUM(dp.Cantidad) as CantidadRepuesto 
+from DetallePrestamo dp 
+		inner join Repuesto r on dp.idRepuesto = r.idRepuesto
+		inner join TipoRepuesto tr on r.idTipoRepuesto = tr.idTipoRepuesto
+		inner join Prestamo p on p.idPrestamo = dp.idPrestamo
+		Where p.fechaInicio between '20/01/2010' And '28/05/2018'
+		Group by tr.Nombre
+				
+select * from DetallePrestamo dp 
+		inner join Repuesto r on dp.idRepuesto = r.idRepuesto
+		inner join TipoRepuesto tr on r.idTipoRepuesto = tr.idTipoRepuesto
+		inner join Prestamo p on p.idPrestamo = dp.idPrestamo
+		
+select * from View_Report1			
+--------------------------------------------------------------View Reporte 2--------------------------------------------
+Create View View_Report2
+as
+Select CONCAT(nombreCompleto,' - Interno: ', pr.idDerechoLinea) as ChoferInterno, pr.idPrestamo,pr.Descripcion,pr.fechaLimite from Prestamo pr
+		inner join Personal p on p.Login = pr.idChofer
+		where pr.fechaLimite >= getdate()
+--------------------------------------------------------------View Reporte 3----------------------------------------------
+Create View View_Report3
+as
+select tr.Nombre, SUM(dp.Cantidad) as CantidadRepuesto, SUM(r.Precio) as MontoTotal
+from DetallePrestamo dp 
+		inner join Repuesto r on dp.idRepuesto = r.idRepuesto
+		inner join TipoRepuesto tr on r.idTipoRepuesto = tr.idTipoRepuesto
+		inner join Prestamo p on p.idPrestamo = dp.idPrestamo
+		Group by tr.Nombre
+----------------------------------------------------Prueba Reporte 3--------------------------------------------------------
+select tr.Nombre, SUM(dp.Cantidad) as CantidadRepuesto, SUM(r.Precio) as MontoTotal
+from DetallePrestamo dp 
+		inner join Repuesto r on dp.idRepuesto = r.idRepuesto
+		inner join TipoRepuesto tr on r.idTipoRepuesto = tr.idTipoRepuesto
+		inner join Prestamo p on p.idPrestamo = dp.idPrestamo
+		Where p.fechaInicio between '20/01/2010' And '28/05/2018'
+		Group by tr.Nombre
+--------------------------------------------------------------View Reporte 4---------------------------------------------
+Create View View_Report4
+as
+select Sum(Cantidad) as Stock, tr.idTipoRepuesto, tr.Nombre from Repuesto r 
+		inner join TipoRepuesto tr on tr.idTipoRepuesto = r.idTipoRepuesto
+		group by tr.idTipoRepuesto, tr.Nombre
+
+		order by Stock DESC
+-------------------------------------------------------------------------------------------------Tareas Programadas----------------------------------------------------------------
+
+create procedure SPBackupTotal
+as
+	begin	
+		declare @Fec date
+		declare @nom varchar(50)	
+		set @Fec = SYSDATETIME()
+		set @nom = 'C:\FINAL\CopyBDDEFEXTtotal - '+(CONVERT(varchar(30),@Fec))+'.bak' 
+		backup database BDDEFEXT
+		to Disk = @nom
+		with CHECKSUM
+end
+create procedure SPBackupDiferencial
+as
+	begin	
+		declare @Fec date
+		declare @nom varchar(50)	
+		set @Fec = SYSDATETIME()
+		set @nom = 'C:\FINAL\CopyBDDEFEXTdif - '+(CONVERT(varchar(30),@Fec))+'.bak'
+		backup database BDDEFEXT
+		to Disk = @nom
+		with DIFFERENTIAL
+end
+------------------------------------------------------------------------------------------------------------------------------------------------

@@ -12,6 +12,8 @@ namespace SistemaVentaPrestamo.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class BDDEFEXTEntities : DbContext
     {
@@ -40,7 +42,20 @@ namespace SistemaVentaPrestamo.Models
         public virtual DbSet<DetallePrestamo> DetallePrestamo { get; set; }
         public virtual DbSet<DetalleVenta> DetalleVenta { get; set; }
         public virtual DbSet<RolesPersonal> RolesPersonal { get; set; }
+        public virtual DbSet<View_Report1> View_Report1 { get; set; }
+        public virtual DbSet<View_Report2> View_Report2 { get; set; }
+        public virtual DbSet<View_Report3> View_Report3 { get; set; }
+        public virtual DbSet<View_Report4> View_Report4 { get; set; }
         public virtual DbSet<SistemaVentaPrestamo.Models.OrdenRepuesto> OrdenRepuesto { get; set; }
 
+        public virtual int SPBackupDiferencial()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SPBackupDiferencial");
+        }
+    
+        public virtual int SPBackupTotal()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SPBackupTotal");
+        }
     }
 }

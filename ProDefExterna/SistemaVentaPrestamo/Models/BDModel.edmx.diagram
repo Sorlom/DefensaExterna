@@ -40,6 +40,10 @@
         <AssociationConnector Association="BDDEFEXTModel.FK__DetalleVe__idVen__32E0915F" />
         <AssociationConnector Association="BDDEFEXTModel.FK__RolesPers__Login__2B3F6F97" />
         <AssociationConnector Association="BDDEFEXTModel.FK__RolesPers__idRol__2C3393D0" />
+        <EntityTypeShape EntityType="BDDEFEXTModel.View_Report1" Width="1.5" PointX="9.875" PointY="1.375" />
+        <EntityTypeShape EntityType="BDDEFEXTModel.View_Report2" Width="1.5" PointX="12" PointY="1.125" />
+        <EntityTypeShape EntityType="BDDEFEXTModel.View_Report3" Width="1.5" PointX="13.75" PointY="1.25" />
+        <EntityTypeShape EntityType="BDDEFEXTModel.View_Report4" Width="1.5" PointX="14.625" PointY="3.375" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

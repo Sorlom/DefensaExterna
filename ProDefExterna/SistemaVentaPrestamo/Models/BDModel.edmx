@@ -152,6 +152,50 @@
           <Property Name="idChofer" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="idEncargado" Type="varchar" MaxLength="30" Nullable="false" />
         </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDEFEXT.dbo.View_Report1' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="View_Report1">
+          <Key>
+            <PropertyRef Name="Nombre" />
+          </Key>
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CantidadRepuesto" Type="int" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDEFEXT.dbo.View_Report2' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="View_Report2">
+          <Key>
+            <PropertyRef Name="ChoferInterno" />
+            <PropertyRef Name="idPrestamo" />
+            <PropertyRef Name="Descripcion" />
+            <PropertyRef Name="fechaLimite" />
+          </Key>
+          <Property Name="ChoferInterno" Type="varchar" MaxLength="74" Nullable="false" />
+          <Property Name="idPrestamo" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="fechaLimite" Type="datetime" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDEFEXT.dbo.View_Report3' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="View_Report3">
+          <Key>
+            <PropertyRef Name="Nombre" />
+          </Key>
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CantidadRepuesto" Type="int" />
+          <Property Name="MontoTotal" Type="decimal" Precision="38" Scale="2" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BDDEFEXT.dbo.View_Report4' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="View_Report4">
+          <Key>
+            <PropertyRef Name="idTipoRepuesto" />
+            <PropertyRef Name="Nombre" />
+          </Key>
+          <Property Name="Stock" Type="int" />
+          <Property Name="idTipoRepuesto" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <Association Name="FK__ChoferDer__idDer__300424B4">
           <End Role="DerechoLinea" Type="Self.DerechoLinea" Multiplicity="1" />
           <End Role="ChoferDerLin" Type="Self.ChoferDerLin" Multiplicity="*" />
@@ -272,7 +316,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Interno__idDerec__1BFD2C07">
+        <Association Name="FK__Interno__idDerec__403A8C7D">
           <End Role="DerechoLinea" Type="Self.DerechoLinea" Multiplicity="1" />
           <End Role="Interno" Type="Self.Interno" Multiplicity="*" />
           <ReferentialConstraint>
@@ -392,6 +436,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="SPBackupDiferencial" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SPBackupTotal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="BDDEFEXTModelStoreContainer">
           <EntitySet Name="Bitacora" EntityType="Self.Bitacora" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ChoferDerLin" EntityType="Self.ChoferDerLin" Schema="dbo" store:Type="Tables" />
@@ -408,6 +454,34 @@
           <EntitySet Name="RolesPersonal" EntityType="Self.RolesPersonal" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TipoRepuesto" EntityType="Self.TipoRepuesto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Venta" EntityType="Self.Venta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="View_Report1" EntityType="Self.View_Report1" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_Report1].[Nombre] AS [Nombre], 
+    [View_Report1].[CantidadRepuesto] AS [CantidadRepuesto]
+    FROM [dbo].[View_Report1] AS [View_Report1]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_Report2" EntityType="Self.View_Report2" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_Report2].[ChoferInterno] AS [ChoferInterno], 
+    [View_Report2].[idPrestamo] AS [idPrestamo], 
+    [View_Report2].[Descripcion] AS [Descripcion], 
+    [View_Report2].[fechaLimite] AS [fechaLimite]
+    FROM [dbo].[View_Report2] AS [View_Report2]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_Report3" EntityType="Self.View_Report3" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_Report3].[Nombre] AS [Nombre], 
+    [View_Report3].[CantidadRepuesto] AS [CantidadRepuesto], 
+    [View_Report3].[MontoTotal] AS [MontoTotal]
+    FROM [dbo].[View_Report3] AS [View_Report3]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_Report4" EntityType="Self.View_Report4" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_Report4].[Stock] AS [Stock], 
+    [View_Report4].[idTipoRepuesto] AS [idTipoRepuesto], 
+    [View_Report4].[Nombre] AS [Nombre]
+    FROM [dbo].[View_Report4] AS [View_Report4]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK__ChoferDer__idDer__300424B4" Association="Self.FK__ChoferDer__idDer__300424B4">
             <End Role="DerechoLinea" EntitySet="DerechoLinea" />
             <End Role="ChoferDerLin" EntitySet="ChoferDerLin" />
@@ -448,7 +522,7 @@
             <End Role="Prestamo" EntitySet="Prestamo" />
             <End Role="Devolucion" EntitySet="Devolucion" />
           </AssociationSet>
-          <AssociationSet Name="FK__Interno__idDerec__1BFD2C07" Association="Self.FK__Interno__idDerec__1BFD2C07">
+          <AssociationSet Name="FK__Interno__idDerec__403A8C7D" Association="Self.FK__Interno__idDerec__403A8C7D">
             <End Role="DerechoLinea" EntitySet="DerechoLinea" />
             <End Role="Interno" EntitySet="Interno" />
           </AssociationSet>
@@ -840,6 +914,12 @@
             <End Role="Roles" EntitySet="Roles" />
             <End Role="RolesPersonal" EntitySet="RolesPersonal" />
           </AssociationSet>
+          <EntitySet Name="View_Report1" EntityType="BDDEFEXTModel.View_Report1" />
+          <EntitySet Name="View_Report2" EntityType="BDDEFEXTModel.View_Report2" />
+          <EntitySet Name="View_Report3" EntityType="BDDEFEXTModel.View_Report3" />
+          <EntitySet Name="View_Report4" EntityType="BDDEFEXTModel.View_Report4" />
+          <FunctionImport Name="SPBackupDiferencial" />
+          <FunctionImport Name="SPBackupTotal" />
           </EntityContainer>
         <EntityType Name="ChoferDerLin">
           <Key>
@@ -1017,6 +1097,42 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="View_Report1">
+          <Key>
+            <PropertyRef Name="Nombre" />
+          </Key>
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CantidadRepuesto" Type="Int32" />
+        </EntityType>
+        <EntityType Name="View_Report2">
+          <Key>
+            <PropertyRef Name="ChoferInterno" />
+            <PropertyRef Name="idPrestamo" />
+            <PropertyRef Name="Descripcion" />
+            <PropertyRef Name="fechaLimite" />
+          </Key>
+          <Property Name="ChoferInterno" Type="String" Nullable="false" MaxLength="74" FixedLength="false" Unicode="false" />
+          <Property Name="idPrestamo" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="fechaLimite" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="View_Report3">
+          <Key>
+            <PropertyRef Name="Nombre" />
+          </Key>
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CantidadRepuesto" Type="Int32" />
+          <Property Name="MontoTotal" Type="Decimal" Precision="38" Scale="2" />
+        </EntityType>
+        <EntityType Name="View_Report4">
+          <Key>
+            <PropertyRef Name="idTipoRepuesto" />
+            <PropertyRef Name="Nombre" />
+          </Key>
+          <Property Name="Stock" Type="Int32" />
+          <Property Name="idTipoRepuesto" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1185,6 +1301,44 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="View_Report1">
+            <EntityTypeMapping TypeName="BDDEFEXTModel.View_Report1">
+              <MappingFragment StoreEntitySet="View_Report1">
+                <ScalarProperty Name="CantidadRepuesto" ColumnName="CantidadRepuesto" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_Report2">
+            <EntityTypeMapping TypeName="BDDEFEXTModel.View_Report2">
+              <MappingFragment StoreEntitySet="View_Report2">
+                <ScalarProperty Name="fechaLimite" ColumnName="fechaLimite" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="idPrestamo" ColumnName="idPrestamo" />
+                <ScalarProperty Name="ChoferInterno" ColumnName="ChoferInterno" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_Report3">
+            <EntityTypeMapping TypeName="BDDEFEXTModel.View_Report3">
+              <MappingFragment StoreEntitySet="View_Report3">
+                <ScalarProperty Name="MontoTotal" ColumnName="MontoTotal" />
+                <ScalarProperty Name="CantidadRepuesto" ColumnName="CantidadRepuesto" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_Report4">
+            <EntityTypeMapping TypeName="BDDEFEXTModel.View_Report4">
+              <MappingFragment StoreEntitySet="View_Report4">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="idTipoRepuesto" ColumnName="idTipoRepuesto" />
+                <ScalarProperty Name="Stock" ColumnName="Stock" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SPBackupDiferencial" FunctionName="BDDEFEXTModel.Store.SPBackupDiferencial" />
+          <FunctionImportMapping FunctionImportName="SPBackupTotal" FunctionName="BDDEFEXTModel.Store.SPBackupTotal" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

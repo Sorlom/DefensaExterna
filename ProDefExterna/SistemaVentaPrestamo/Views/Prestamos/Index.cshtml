@@ -21,13 +21,13 @@
             @Html.DisplayNameFor(model => model.fechaLimite)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DerechoLinea.Descripcion)
+            @Html.DisplayName("ID Derecho Linea")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Personal.Password)
+            @Html.DisplayName("Chofer")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Personal1.Password)
+            @Html.DisplayName("Encargado")
         </th>
         <th></th>
     </tr>
@@ -44,13 +44,13 @@
             @Html.DisplayFor(modelItem => item.fechaLimite)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.DerechoLinea.Descripcion)
+            @Html.DisplayFor(modelItem => item.DerechoLinea.idDerechoLinea)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Personal.Password)
+            @Html.DisplayFor(modelItem => item.Personal.Login)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Personal1.Password)
+            @Html.DisplayFor(modelItem => item.Personal1.Login)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.idPrestamo }) |
